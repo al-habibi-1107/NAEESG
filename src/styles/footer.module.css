@@ -1,0 +1,85 @@
+.collapsible-footer {
+    background-color: #1a1a2e; /* Dark navy background */
+    color: #ffffff; /* White text */
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+  }
+  
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer-section {
+    border-bottom: 1px solid #444;
+    padding: 10px 0;
+  }
+  
+  .footer-section h4 {
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 10px 0 0 0;
+    margin: 0;
+    color: #d1d1d1;
+  }
+  
+  .footer-section ul li {
+    margin: 8px 0;
+  }
+  
+  .footer-section ul li a {
+    text-decoration: none;
+    color: #d1d1d1;
+    transition: color 0.3s;
+  }
+  
+  .footer-section ul li a:hover {
+    color: #d32f2f; /* Red hover effect */
+  }
+  
+  .arrow {
+    font-size: 12px;
+    transition: transform 0.3s;
+  }
+  
+  .arrow.open {
+    transform: rotate(180deg);
+  }
+  
+  .footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #444;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .social-icons a {
+    color: #d1d1d1;
+    font-size: 20px;
+    transition: color 0.3s;
+  }
+  
+  .social-icons a:hover {
+    color: #d32f2f; /* Red hover effect */
+  }
+  
+  .footer-bottom p {
+    font-size: 14px;
+    color: #d1d1d1;
+  }
