@@ -42,6 +42,7 @@ const Header = ()=>{
 
       {/* Navbar */}
       <div className={styles.navbar}>
+        
         <div className={styles.logo}>
           <img
             src="/logo.png"
@@ -85,6 +86,7 @@ const Header = ()=>{
             </li>
           </ul>
         </nav>
+      
       </div>
     </header>
     );
