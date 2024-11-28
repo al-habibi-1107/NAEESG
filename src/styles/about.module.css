@@ -74,7 +74,7 @@
       align-items: center;
       padding: 26px;
       margin-top: 0vh;
-      height: 60vh;
+      height: fit-content;
     }
     
     .about-card-icon {

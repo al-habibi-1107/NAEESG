@@ -10,7 +10,8 @@ const Body: React.FC = () => {
         POWERING YOUR NEEDS WITH THE BEST ELECTRICAL PRODUCTS
         </h1>
         <p className={styles.description}>
-          Super Distributor for SIEMENS & BONTON Cables in Jharkhand
+          Super Distributor for SIEMENS & BONTON Cables in Jharkhand<br/>
+          Authorised Dealer of Circuit Breakers , Switch Disconnectors and Distribution Boards
         </p>
         <div className={styles.buttons}>
           <button className={`${styles.btn} ${styles.btnElectrical}`}>

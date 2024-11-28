@@ -61,27 +61,27 @@ const Header = ()=>{
           <ul>
             <li>
               <Link href="/" onClick={() => setMenuOpen(false)}>
-                Home
+                HOME
               </Link>
             </li>
             <li>
               <Link href="/about" onClick={() => setMenuOpen(false)}>
-                About Us
+                ABOUT US
               </Link>
             </li>
             <li>
               <Link href="/products" onClick={() => setMenuOpen(false)}>
-               Products
+               PRODUCTS
               </Link>
             </li>
             <li>
               <Link href="/brands" onClick={() => setMenuOpen(false)}>
-                Brands
+                BRANDS
               </Link>
             </li>
             <li>
               <Link href="/contact" onClick={() => setMenuOpen(false)}>
-                Contact
+                CONTACT
               </Link>
             </li>
           </ul>
