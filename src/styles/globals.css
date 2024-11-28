@@ -5,6 +5,20 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --primaryColor: #1a1a2e;
+  --secondaryColor: #d32f2f;
+  --tertiaryColor: #001f4d;
+  --backgroundColor: #eaeaea;
+
+
+  --textPrimary: #1a1a2e;
+  --textSecondary: #d32f2f;
+  --textTertiary: #001f4d;
+
+  --mobileSize: 768px;
+  --tabSize: 1100px;
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,6 +30,6 @@
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  background: #fff;
   font-family: Arial, Helvetica, sans-serif;
 }

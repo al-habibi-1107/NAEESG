@@ -7,16 +7,19 @@ const Body: React.FC = () => {
       {/* Left Content */}
       <div className={styles.content}>
         <h1 className={styles.title}>
-        Powering Your Needs with the Best Electrical Products
+        POWERING YOUR NEEDS WITH THE BEST ELECTRICAL PRODUCTS
         </h1>
         <p className={styles.description}>
           Super Distributor for SIEMENS & BONTON Cables in Jharkhand
         </p>
         <div className={styles.buttons}>
           <button className={`${styles.btn} ${styles.btnElectrical}`}>
-            Electrical
+            Wires & Cables
           </button>
-          <button className={`${styles.btn} ${styles.btnSolar}`}>Solar</button>
+          <button className={`${styles.btn} ${styles.btnSolar}`}>
+            Electrical Appliances
+          </button>
+          
         </div>
       </div>
 

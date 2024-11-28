@@ -1,0 +1,88 @@
+.about-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--primaryColor); /* Replace with your red background color */
+    color: #ffffff; /* Text color */
+    border-radius: 2px; /* Rounded corners */
+    padding: 26px 26px 26px 0 ;
+    margin: 20px auto; /* Center and spacing */
+    max-width: 1200px; /* Limit the width */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+    overflow-x: hidden ;
+    height: 35vh;
+
+    position: relative;
+    z-index: 222;
+    margin-top: -15vh;
+}
+
+
+  
+  .about-card-icon {
+    flex: 1 1.5 1;
+    margin-right: 20px; /* Space between icon and text */
+  }
+  
+  .about-card-icon img {
+    display: inline-block;
+    color: #ffffff;
+    width: 120px; /* Adjust size as needed */
+    height: 160px;
+    margin-left: 0;
+    opacity: 0.7;
+    
+  }
+  .about-card-title{
+    margin: 5px 24px;
+    max-width: 200px;
+  }
+  .about-card-title p{
+    font-size: 16px;
+  }
+  .about-card-title h2{
+    font-size: 26px;
+    font-weight: 600;
+  }
+  .about-card-content {
+    flex: 0.7; /* Take remaining space */
+  }
+  
+  .about-card-content h2 {
+    font-size: 16px; /* Adjust heading size */
+    margin: 0 0 10px 0;
+  }
+  
+  .about-card-content p {
+    font-size: 16px; /* Adjust paragraph size */
+    line-height: 1.6; /* Improve readability */
+  }
+
+
+  @media(max-width:1200px){
+    .about-card{
+      max-width: 900px;
+    }
+
+  }
+
+  @media (max-width:768px) {
+    .about-card{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 26px;
+      margin-top: 0vh;
+      height: 60vh;
+    }
+    
+    .about-card-icon {
+      align-self: flex-start ; /* Space between icon and text */
+    }
+    
+    .about-card-title{
+    margin: 30px 10px;
+     max-width: fit-content;
+    }
+  }
