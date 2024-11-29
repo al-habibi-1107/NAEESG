@@ -1,14 +1,17 @@
 
 import styles from '../styles/about.module.css'
+import Image from 'next/image';
 
 const About = ()=>{
 
     return(
         <div className={styles["about-card"]}>
         <div className={styles["about-card-icon"]}>
-          <img
+          <Image
             src="/plug-w.png" // Replace with the icon's path
             alt="About Icon"
+            width={100}
+            height={100}
           />
         </div>
         <div className={styles["about-card-title"]}>

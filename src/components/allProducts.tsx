@@ -1,5 +1,7 @@
 import styles from '../styles/allproducts.module.css'
 
+import Image from 'next/image';
+
 const AllProducts = ()=>{
 
     return(
@@ -13,19 +15,19 @@ const AllProducts = ()=>{
       <div className={styles.productsItems}>
         <div className={styles.productsGrid}>
             <div className={styles.productCard}>
-            <img src="/3PMCCB.png" alt="MCBs" />
+            <Image src="/3PMCCB.png" alt="MCBs" width={150} height={150} />
             <div className={styles.label}>MCB</div>
             </div>
             <div className={styles.productCard}>
-            <img src="/4PRCCB.png" alt="RCCBs" />
+            <Image src="/4PRCCB.png" alt="RCCBs" width={150} height={150} />
             <div className={styles.label}>RCCB</div>
             </div>
             <div className={styles.productCard}>
-            <img src="/ACCL.png" alt="ACCLs" />
+            <Image src="/ACCL.png" alt="ACCLs" width={150} height={150} />
             <div className={styles.label}>ACCL</div>
             </div>
             <div className={styles.productCard}>
-            <img src="/SDC.png" alt="Switch Disconnectors" />
+            <Image src="/SDC.png" alt="Switch Disconnectors"width={150} height={150}  />
             <div className={styles.label}>Switch Disconnectors</div>
             </div>
           <button className={styles['all-products-button']}>VIEW ALL PRODUCTS</button>

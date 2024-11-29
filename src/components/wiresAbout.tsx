@@ -1,4 +1,4 @@
-
+import Image from 'next/image';
 import styles from '../styles/wiresabout.module.css';
 
 const WiresAbout = ()=>{
@@ -23,8 +23,8 @@ const WiresAbout = ()=>{
                 </button>
             </div>
             <div className={styles.rightContent}>
-                <img className={styles.rightImg} src='/BONTON.png'>
-                </img>
+                <Image className={styles.rightImg} src='/BONTON.png' alt='Bonton' width={300} height={300}/>
+                
             </div>
         </section>
         </>

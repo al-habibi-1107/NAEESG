@@ -1,4 +1,5 @@
 import {useState,useEffect} from "react";
+import Image from "next/image";
 import styles from "../styles/body.module.css";
 
 const Body: React.FC = () => {
@@ -84,11 +85,11 @@ const Body: React.FC = () => {
       {/* Right Vertical Slider */}
       <div className={styles.slider}>
         <div className={styles.sliderImages}>
-          <img src="/3PMCCB.png" alt="Solar Panel" />
-          <img src="/ACCL.png" alt="Light Bulb" />
-          <img src="/4PRCCB.png" alt="Wires" />
-          <img src="/2PMCCB.png" alt="Wires" />
-          <img src="/1PMCCB.png" alt="Wires" />
+          <Image width={100} height={100} src="/3PMCCB.png" alt="Solar Panel" />
+          <Image width={100} height={100}  src="/ACCL.png" alt="Light Bulb" />
+          <Image width={100} height={100}  src="/4PRCCB.png" alt="Wires" />
+          <Image width={100} height={100}  src="/2PMCCB.png" alt="Wires" />
+          <Image width={100} height={100}  src="/1PMCCB.png" alt="Wires" />
 
         </div>
       </div>

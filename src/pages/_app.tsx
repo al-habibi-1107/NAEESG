@@ -1,11 +1,11 @@
 import "@/styles/globals.css";
 
 import Header from '../components/header'
-import Footer from "@/components/footer";
-import Body from "@/components/body";
-import About from "@/components/about";
-import AllProducts from "@/components/allProducts";
-import WiresAbout from "@/components/wiresAbout";
+import Footer from "../components/footer";
+import Body from "../components/body";
+import About from "../components/about";
+import AllProducts from "../components/allProducts";
+import WiresAbout from "../components/wiresAbout";
 
 
 import '@fortawesome/fontawesome-free/css/all.min.css';

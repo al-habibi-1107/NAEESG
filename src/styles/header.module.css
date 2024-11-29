@@ -34,6 +34,9 @@
     color: #1a1a1a; /* Dark Blue */
   }
   
+  .logo-image{
+    width: 120px;
+  }
   
   /* Navbar */
   .header {
@@ -72,11 +75,13 @@
   
   .header .logo-image {
     height: 60px; /* Larger logo */
+    width: 60px;
     transition: height 0.3s ease;
   }
   
   .header-scrolled .logo-image {
-    height: 40px; /* Smaller logo */
+    height: 40px;
+    width: 40px; /* Smaller logo */
   }
   
   .header .logo-text {

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import {useState,useEffect} from 'react';
 
 import styles from '../styles/header.module.css';
@@ -44,9 +45,11 @@ const Header = ()=>{
       <div className={styles.navbar}>
         
         <div className={styles.logo}>
-          <img
+          <Image
             src="/logo.png"
             alt="NAE ElectroSwitchgear  Pvt. Ltd."
+            width={60}
+            height={60}
             className={styles['logo-image']}
           />
           <p className={styles["logo-text"]}>NAE Electro Switchgear Pvt. Ltd.</p>
