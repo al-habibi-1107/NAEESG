@@ -54,11 +54,11 @@ const Header = ()=>{
 
         {/* Hamburger Menu for Mobile */}
         <button className={styles.hamburger} onClick={toggleMenu}>
-          <i className={menuOpen ? "fas fa-times" : "fas fa-bars"}></i>
+          <i className={`${styles.menuToggleBtn} ${menuOpen ? "fas fa-times" : "fas fa-bars"}`}></i>
         </button>
         {/* Navigation Links */}
         <nav className={`${styles['nav-links']} ${menuOpen ? styles.active : ''}`}>
-          <ul>
+          <ul className={styles.menuUl}>
             <li>
               <Link href="/" onClick={() => setMenuOpen(false)}>
                 HOME

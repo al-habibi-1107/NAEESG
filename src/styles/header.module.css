@@ -111,7 +111,7 @@
   }
   
   .nav-links a:hover {
-    color: #d32f2f; /* Red Text on Hover */
+    color: var(--secondaryColor); /* Red Text on Hover */
   }
   
   .header-scrolled .nav-links{
@@ -122,10 +122,14 @@
     display: none;
     background: none;
     border: none;
-    color: #003366; /* Dark Blue */
+    color: var(--primaryColor); /* Dark Blue */
     font-size: 24px;
     cursor: pointer;
   }
+  .menuToggleBtn{
+    transition: transform 0.3s ease;
+  }
+  
   
   @media(max-width:1200px){
     .header .logo-text {
@@ -142,43 +146,68 @@
 
   }
 
-  /* Responsive Adjustments */
   @media (max-width: 768px) {
 
-    .header{
-      height:fit-content ;
+    
+    .header .logo-text {
+      position: relative;
+      left: 20%;
+      font-size: 1.2em; /* Professional font size */
+      font-weight: 600;
+      margin-top: 5px;
+      color: var(--primaryColor); /* Dark Blue */
+      transition: font-size 0.3s ease;
     }
-   .header .navbar{
-      padding: 10px 5%;
-      margin-right: 0;;
+    .logo{
+      display: flex;
+      align-items: center;
     }
+    
+
+    /* Hamburger visibility */
     .hamburger {
-      display: inline;
+      display: block;
     }
   
-    .nav-links ul {
+    /* Default hidden nav-links */
+    .nav-links {
+      display: none; /* Hidden by default */
+    }
+  
+    /* When active, show nav-links */
+    .nav-links.active {
+      display: flex;
       flex-direction: column;
       position: absolute;
-      top: 70px;
+      top: 90px; /* Position below header */
       right: 0;
-      background-color: #ffffff; /* White */
+      background-color: #ffffff; /* White background */
       width: 100%;
-      display: none;
       text-align: center;
       padding: 20px 0;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-  
-    .nav-links ul.active {
-      display: flex;
+    .nav-links ul{
+    list-style: none;
+    display: block;
+    }
+    /* Ensure header adjusts for open menu */
+    .header {
+      height: fit-content;
     }
   
+    .header .navbar {
+      padding: 10px 5%;
+      margin-right: 0;
+    }
+  
+    /* Nav list items spacing */
     .nav-links li {
       margin: 10px 0;
     }
-
+  
+    /* Header scroll adjustments */
     .header-scrolled {
       height: max-content;
     }
   }
-  

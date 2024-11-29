@@ -20,10 +20,22 @@
   }
   
   .title {
-    font-size: 2.75em;
+    font-size: 2.5em;
     font-weight: bold;
     color: #1a1a2e;;
     margin-bottom: 20px;
+  }
+  .blinking-text-box{
+    display: "flex";
+    align-items: "center";
+    color: var(--secondaryColor);
+  }
+
+  .blinking-text{
+    font-weight: "bold";
+    color: #f44336;
+    margin-left: 5px;
+    animation: blink 0.6s steps(2, start) infinite,
   }
 
   @media(max-width:1200px){
@@ -33,7 +45,21 @@
     .title{
       font-size: 1.75em;
     }
+    .blinking-text{
+      font-size: 1.75em;
+    }
   }
+
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  
   
   .description {
     font-size: 18px;
@@ -50,7 +76,7 @@
   .btn {
     padding: 12px 20px;
     border: none;
-    border-radius: 2px;
+    border-radius: 1px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -60,24 +86,24 @@
   
   .btnElectrical {
 
-    outline: 1px solid #a80000;
-    background-color: #a80000;
+    outline: 1px solid var(--secondaryColor);
+    background-color: var(--secondaryColor);
     color: #fff;
   }
   
   .btnElectrical:hover {
     background-color: var(--backgroundColor); /* Replace with your primary color */
-    color: #a80000;
+    color: var(--secondaryColor);
   }
   
   .btnSolar {
-    outline: 1px solid #003366;
+    outline: 1px solid var(--primaryColor);
     background-color: var(--backgroundColor);
-    color: #003366;
+    color: var(--primaryColor);
   }
   
   .btnSolar:hover {
-    background-color: #001f4d;
+    background-color: var(--primaryColor);
     color: #fff;
   }
   
@@ -135,22 +161,25 @@
       flex-direction: column;
       justify-content: flex-start;
       gap: 30px;
+      padding: 10px 10%;
      
     }
   
     .content {
       text-align: center;
+      padding: 5px 10%;
     }
   
     /* Horizontal Slider for Mobile */
     .slider {
-      width: 100vw;
+      position: relative;
+      left: 0;
+      width: 100%;
+      padding: 10px 0;
       height: 20vh;
-      overflow-x: hidden;
-      overflow-y: hidden;
       white-space: nowrap;
-      display: flex;
-      flex-direction: row;
+  
+      
     }
   
     .sliderImages {
@@ -169,7 +198,7 @@
     /* Keyframes for Horizontal Scrolling */
     @keyframes horizontal-slide {
       0% {
-        transform: translateX(0);
+        transform: translateX(100px);
       }
       33% {
         transform: translateX(-200px);

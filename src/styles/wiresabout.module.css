@@ -1,0 +1,76 @@
+
+.wiresAbout{
+    background-color: var(--backgroundColor);
+    width: 100%;
+    height: 60vh;
+
+    padding: 24px 15%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    color: var(--primaryColor);
+}
+
+.leftContent{
+    padding: 40px 0;
+    max-width: 50%;
+
+}
+.leftHeader{
+    font-size: 1.5em;
+    padding: 10px 0;
+    font-weight: 600;
+}
+
+.leftText{
+    padding: 18px 0;
+    font-size: 1em;
+    
+}
+
+.leftBtn{
+    font-weight: 600;
+    font-size: 1em;
+    border: solid 2px var(--primaryColor);
+    padding: 10px 50px;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+}
+
+.leftBtn:hover{
+    background-color: var(--primaryColor);
+    color: #fff;
+}
+
+.rightContent{
+    align-items: center;
+}
+.rightImg{
+    margin: auto;
+    max-width: 400px;
+}
+
+@media(max-width:768px){
+    .wiresAbout{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: stretch;
+        padding: 12px 20px;
+        width: 100%;
+
+        height: fit-content;
+    }
+
+    .leftContent{
+        max-width: 100%;
+    }
+
+    .rightImg{
+        height: 400px;
+    }
+    .leftBtn{
+        width: 100%;
+    }
+}
