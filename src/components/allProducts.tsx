@@ -1,6 +1,8 @@
+import Image from 'next/image';
+
 import styles from '../styles/allproducts.module.css'
 
-import Image from 'next/image';
+
 
 const AllProducts = ()=>{
 

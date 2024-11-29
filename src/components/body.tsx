@@ -1,5 +1,6 @@
 import {useState,useEffect} from "react";
 import Image from "next/image";
+
 import styles from "../styles/body.module.css";
 
 const Body: React.FC = () => {

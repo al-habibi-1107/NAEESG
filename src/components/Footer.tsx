@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import styles from "../styles/footer.module.css";
 import Link from "next/link";
+
+import styles from "../styles/footer.module.css";
+
 
 const Footer = () => {
   const [openSections, setOpenSections] = useState({
