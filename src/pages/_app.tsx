@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import type { AppProps } from "next/app";
 
 import Header from '../components/header'
 import Footer from "@/components/footer";
@@ -19,7 +18,7 @@ import "../styles/allproducts.module.css";
 import "../styles/wiresabout.module.css";
 
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App() {
   return (
   <>
   <Header />

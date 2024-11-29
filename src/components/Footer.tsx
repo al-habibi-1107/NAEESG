@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "../styles/footer.module.css";
+import Link from "next/link";
 
 const Footer = () => {
   const [openSections, setOpenSections] = useState({
@@ -77,13 +78,13 @@ const Footer = () => {
           {(isDesktop || openSections.tools) && (
             <ul className={styles["footer-links"]}>
               <li>
-                <a href="/">Documentation</a>
+                <Link href="/">Documentation</Link>
               </li>
               <li>
-                <a href="/">Support Center</a>
+                <Link href="/">Support Center</Link>
               </li>
               <li>
-                <a href="/">Training</a>
+                <Link href="/">Training</Link>
               </li>
             </ul>
           )}
@@ -109,13 +110,13 @@ const Footer = () => {
           {(isDesktop || openSections.company) && (
             <ul className={styles["footer-links"]}>
               <li>
-                <a href="/">About Us</a>
+                <Link href="/">About Us</Link>
               </li>
               <li>
-                <a href="/">Careers</a>
+                <Link href="/">Careers</Link>
               </li>
               <li>
-                <a href="/">Press</a>
+                <Link href="/">Press</Link>
               </li>
             </ul>
           )}
@@ -141,13 +142,13 @@ const Footer = () => {
           {(isDesktop || openSections.support) && (
             <ul className={styles["footer-links"]}>
               <li>
-                <a href="/">Help Center</a>
+                <Link href="/">Help Center</Link>
               </li>
               <li>
-                <a href="/">Contact Us</a>
+                <Link href="/">Contact Us</Link>
               </li>
               <li>
-                <a href="/">FAQs</a>
+                <Link href="/">FAQs</Link>
               </li>
             </ul>
           )}
@@ -157,18 +158,18 @@ const Footer = () => {
       {/* Footer Bottom Section */}
       <div className={styles["footer-bottom"]}>
         <div className={styles["social-icons"]}>
-          <a href="/">
+          <Link href="/">
             <i className="fab fa-facebook"></i>
-          </a>
-          <a href="/">
+          </Link>
+          <Link href="/">
             <i className="fab fa-twitter"></i>
-          </a>
-          <a href="/">
+          </Link>
+          <Link href="/">
             <i className="fab fa-instagram"></i>
-          </a>
-          <a href="/">
+          </Link>
+          <Link href="/">
             <i className="fab fa-youtube"></i>
-          </a>
+          </Link>
         </div>
         <p>© 2024 NAE Electro Switchgear Pvt. Ltd. All Rights Reserved.</p>
       </div>
