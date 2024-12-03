@@ -7,6 +7,8 @@
     background-color: #ffffff;
     position: relative;
     left: 2%;
+    min-height: fit-content;
+
   }
   
   /* Heading */
@@ -24,9 +26,15 @@
   }
   
   /* Products Grid */
+  .productsLeft{
+    display: flex;
+    flex-direction:column;
+    gap: 20px;
+    padding: 10px;
+  }
   .productsGrid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-columns: repeat(2, minmax(280px, 1fr));  /* Two columns */
     gap: 20px;
     width: 100%;
     max-width: 800px;
@@ -46,18 +54,22 @@
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 300px;
-    height: 300px;
+    width: 100%; /* Full width within grid cell */
+    aspect-ratio: 1; /* Ensure square card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   .productCard img {
-    max-width: 300px;
-    max-height: 250px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+    width: auto;
+    height: auto;
+    max-width: 80%; /* Center image horizontally */
+    max-height: 70%; /* Center image vertically */
+    margin: auto; /* Center image */
+    display: block;
+    object-fit: contain; 
   }
   
   .productCard:hover {
@@ -80,16 +92,13 @@
   }
   
   .all-products-button{
-    display: inline-block;
-  padding: 15px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--primaryColor); /* Text color */
-  background-color: transparent; /* No background */
-  border: 2px solid var(--primaryColor); /* Outline border */
-  border-radius: 1px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 1em;
+    border: solid 2px var(--primaryColor);
+    padding: 10px 50px;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+    color: var(--primaryColor);
   }
 
   .all-products-button:hover{
@@ -118,7 +127,13 @@
       display: none;
     }
     .productsSection{
-      padding: 10px 20px;
+      padding: 10px 40px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .productsGrid{
+      grid-template-columns: repeat(2, minmax(250px, 1fr));  
     }
 
     .all-products-button{
