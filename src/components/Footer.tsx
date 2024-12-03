@@ -66,7 +66,7 @@ const Footer = () => {
             onClick={() => toggleSection("tools")}
             className={styles["mobile-title"]}
           >
-            Tools & Resources
+            SITEMAP
             {!isDesktop && (
               <span
                 className={`${styles.arrow} ${
@@ -80,13 +80,16 @@ const Footer = () => {
           {(isDesktop || openSections.tools) && (
             <ul className={styles["footer-links"]}>
               <li>
-                <Link href="/">Documentation</Link>
+                <Link href="/">HOME</Link>
               </li>
               <li>
-                <Link href="/">Support Center</Link>
+                <Link href="/">ABOUT US</Link>
               </li>
               <li>
-                <Link href="/">Training</Link>
+                <Link href="/">PRODUCTS</Link>
+              </li>
+              <li>
+                <Link href="/">BRANDS</Link>
               </li>
             </ul>
           )}
@@ -98,7 +101,7 @@ const Footer = () => {
             onClick={() => toggleSection("company")}
             className={styles["mobile-title"]}
           >
-            Company
+            COMPANY
             {!isDesktop && (
               <span
                 className={`${styles.arrow} ${
@@ -112,13 +115,13 @@ const Footer = () => {
           {(isDesktop || openSections.company) && (
             <ul className={styles["footer-links"]}>
               <li>
-                <Link href="/">About Us</Link>
+                <Link href="/">NAE ELECTRO SWITCHGEAR PVT LTD</Link>
               </li>
               <li>
-                <Link href="/">Careers</Link>
+                <Link href="/">ELECTRICAL APPLIANCES</Link>
               </li>
               <li>
-                <Link href="/">Press</Link>
+                <Link href="/">WIRES AND CABLES</Link>
               </li>
             </ul>
           )}
@@ -130,7 +133,7 @@ const Footer = () => {
             onClick={() => toggleSection("support")}
             className={styles["mobile-title"]}
           >
-            Support
+            SUPPORT
             {!isDesktop && (
               <span
                 className={`${styles.arrow} ${
@@ -144,13 +147,19 @@ const Footer = () => {
           {(isDesktop || openSections.support) && (
             <ul className={styles["footer-links"]}>
               <li>
-                <Link href="/">Help Center</Link>
+                <Link href="/">HELP CENTER</Link>
               </li>
               <li>
-                <Link href="/">Contact Us</Link>
+                <Link href="/">CONTACT US</Link>
               </li>
               <li>
                 <Link href="/">FAQs</Link>
+              </li>
+              <li>
+                <Link href="/">WHATSAPP</Link>
+              </li>
+              <li>
+                <Link href="/">FACEBOOK</Link>
               </li>
             </ul>
           )}

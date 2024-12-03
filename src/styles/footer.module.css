@@ -3,7 +3,8 @@
     background-color: #1a1a2e;
     color: white;
     font-family: Arial, sans-serif;
-    padding: 20px 0;
+    padding: 0 auto;
+   width: 100%;
   }
   
   /* Footer Top Section */
@@ -30,21 +31,24 @@
   
   .footer-links {
     list-style: none;
-    padding: 10px 0;
+    padding: 15px 0;
+    font-size: 16px;
     margin: 0;
   }
   
   .footer-links li {
-    margin: 5px 0;
+    
+    margin: 10px 0;
   }
   
-  .footer-links a {
+  .footer-links link {
+    
     color: #d1d1d1;
     text-decoration: none;
     transition: color 0.3s ease;
   }
   
-  .footer-links a:hover {
+  .footer-links link:hover {
     color: #d32f2f;
   }
   

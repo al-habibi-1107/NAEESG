@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import styles from '../styles/wiresabout.module.css';
+import styles from '../styles/wiresAbout.module.css';
 
 const WiresAbout = ()=>{
 

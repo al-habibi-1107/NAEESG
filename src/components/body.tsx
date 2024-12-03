@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import styles from "../styles/body.module.css";
 
-const Body: React.FC = () => {
+const BodySection: React.FC = () => {
 
 
   const texts = ["CABLES & WIRES", "CIRCUIT BREAKERS", "DISTRIBUTION BOARDS"];
@@ -98,4 +98,4 @@ const Body: React.FC = () => {
   );
 };
 
-export default Body;
+export default BodySection;

@@ -2,9 +2,9 @@
 
 
 .brandsSection {
-    min-height: 30vh;
+    min-height: max-content;
     width: 100%;
-    padding: 20px 19%;
+    padding: 2em 19%;
     background-color: var(--backgroundDefault);
     text-align: center;
     display: flex;
@@ -33,6 +33,7 @@
     align-items: center;   
     background-color: var(--backgroundDefault);
     gap:2em;
+    margin: 1em 0;
    
   }
   
