@@ -1,8 +1,30 @@
 {
+  
   "extends": ["next/core-web-vitals", "next/typescript"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".css"]
+      },
+      "alias": {
+        "map": [["@", "./src"]],
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".css"]
+      }
+    }
+  },
   "rules": {
     "import/no-unresolved": "error",
-    "import/extensions": "error",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never",
+        "css": "always"
+      }
+    ],
     "import/order": [
       "error",
       {
