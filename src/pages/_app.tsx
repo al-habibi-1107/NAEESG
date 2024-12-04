@@ -22,9 +22,6 @@ import "../styles/brands.module.css";
 import "../styles/quickContact.module.css";
 
 
-
-
-
 export default function App() {
   return (
   <>

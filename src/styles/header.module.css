@@ -155,17 +155,21 @@
 
     
     .header .logo-text {
-      position: relative;
-      left: 20%;
-      font-size: 1.2em; /* Professional font size */
+   
+
+      font-size: 0.8em; /* Professional font size */
       font-weight: 600;
-      margin-top: 5px;
       color: var(--primaryColor); /* Dark Blue */
       transition: font-size 0.3s ease;
+      width: 100%;
+      text-align: center;
     }
     .logo{
       display: flex;
       align-items: center;
+      width: 100%;
+      justify-content: start;
+     
     }
     
 
@@ -184,7 +188,7 @@
       display: flex;
       flex-direction: column;
       position: absolute;
-      top: 90px; /* Position below header */
+      top: 140px; /* Position below header */
       right: 0;
       background-color: #ffffff; /* White background */
       width: 100%;
@@ -199,11 +203,15 @@
     /* Ensure header adjusts for open menu */
     .header {
       height: fit-content;
+      justify-content: space-between;
+  
     }
   
     .header .navbar {
       padding: 10px 5%;
       margin-right: 0;
+      width: 100%;
+      justify-content: stretch;
     }
   
     /* Nav list items spacing */

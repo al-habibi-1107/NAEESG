@@ -127,17 +127,31 @@
       display: none;
     }
     .productsSection{
-      padding: 10px 40px;
+      padding: 10px 10px;
       width: 100%;
       overflow: hidden;
     }
 
     .productsGrid{
-      grid-template-columns: repeat(2, minmax(250px, 1fr));  
+      grid-template-columns: repeat(2, 49%);  
     }
 
     .all-products-button{
       width: 100%;
+    }
+
+    .label{
+      font-size: 0.8em;
+    }
+  }
+
+  @media (max-width:900px) {
+    .verticalText{
+      display: none;
+    }
+
+    .productsSection{
+      padding: 20px 20px;
     }
   }
  

@@ -162,25 +162,38 @@
       justify-content: flex-start;
       gap: 30px;
       padding: 10px 10%;
+      margin-top: 140px;
      
     }
   
     .content {
       text-align: center;
       padding: 5px 10%;
+      font-size: 1.1em;
     }
+
+    .blinking-text{
+      line-height: 15px;
+    }
+
+    .btn{
+      font-size: 12px;
+    }
+  
   
     /* Horizontal Slider for Mobile */
     .slider {
       position: relative;
       left: 0;
-      width: 100%;
+      width: 142%;
+      left: -20%;
       padding: 10px 0;
       height: 20vh;
       white-space: nowrap;
   
       
     }
+
   
     .sliderImages {
       display: flex;
