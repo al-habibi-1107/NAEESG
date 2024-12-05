@@ -14,7 +14,7 @@
 
     position: relative;
     z-index: 222;
-    margin-top: -13vh;
+    margin-top: -10vh;
 }
 
 
@@ -72,7 +72,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 26px;
+      padding: 10px 30px;
       margin-top: 0vh;
       height: fit-content;
     }
@@ -82,7 +82,7 @@
     }
     
     .about-card-title{
-    margin: 30px 10px;
+    margin: 30px 20px;
      max-width: fit-content;
     }
   }

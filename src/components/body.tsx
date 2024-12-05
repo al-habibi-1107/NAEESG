@@ -69,7 +69,7 @@ const BodySection: React.FC = () => {
     </div>
         </h1>
         <p className={styles.description}>
-          Super Distributor for SIEMENS & BONTON Cables in Jharkhand<br/>
+        Super Distributor for <b>SIEMENS & BONTON Cables in Jharkhand</b><br/>
           Authorised Dealer of Circuit Breakers , Switch Disconnectors and Distribution Boards
         </p>
         <div className={styles.buttons}>

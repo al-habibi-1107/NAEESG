@@ -126,14 +126,20 @@
     .verticalText{
       display: none;
     }
-    .productsSection{
+    .productsSection {
       padding: 10px 10px;
       width: 100%;
-      overflow: hidden;
+      overflow: hidden; /* Ensure no horizontal scrolling */
+    }
+  
+    .productsGrid {
+      display: grid; /* Use grid layout */
+      grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+      gap: 16px; /* Add spacing between items */
     }
 
-    .productsGrid{
-      grid-template-columns: repeat(2, 49%);  
+    .productsLeft{
+      width: 90%;
     }
 
     .all-products-button{
