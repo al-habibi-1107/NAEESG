@@ -1,5 +1,8 @@
 
 
+import { ChakraProvider,defaultSystem } from "@chakra-ui/react"
+import { AppProps } from "next/app";
+
 import Header from '../components/header';
 import Footer from "../components/Footer";
 import BodySection from '../components/body';
@@ -22,17 +25,18 @@ import "../styles/brands.module.css";
 import "../styles/quickContact.module.css";
 
 
-export default function App() {
+export default function App({ Component, pageProps }:AppProps) {
   return (
-  <>
-  <Header />
-  <BodySection/>
-  <About/>
-  <AllProducts/>
-  <WiresAbout/>
-  <BrandsSection/>
-  <QuickContactSection/>
-  <Footer/>
-  </>
+    <ChakraProvider value={defaultSystem}>
+      <Header />
+      <BodySection/>
+      <About/>
+      <AllProducts/>
+      <WiresAbout/>
+      <BrandsSection/>
+      <QuickContactSection/>
+      <Footer/>
+  </ChakraProvider>
+
   );
 }
