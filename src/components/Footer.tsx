@@ -5,6 +5,7 @@ import styles from "../styles/footer.module.css";
 
 
 const Footer = () => {
+
   const [openSections, setOpenSections] = useState({
     tools: false,
     company: false,
@@ -15,6 +16,7 @@ const Footer = () => {
 
   // Detect if the screen is in desktop mode
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 768);
     };
@@ -26,6 +28,7 @@ const Footer = () => {
 
   // Default all sections to open in desktop mode
   useEffect(() => {
+    if (typeof window === "undefined") return;
     if (isDesktop) {
       setOpenSections({
         tools: true,

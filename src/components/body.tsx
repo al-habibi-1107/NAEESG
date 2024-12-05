@@ -18,6 +18,7 @@ const BodySection: React.FC = () => {
 
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const handleTyping = () => {
       const currentWord = texts[currentIndex];
 
