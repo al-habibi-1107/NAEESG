@@ -9,6 +9,7 @@ import {
   Image,
   Text,
 } from "@chakra-ui/react";
+
 import {allProducts,allCategories} from '../../models/product'
 
 
