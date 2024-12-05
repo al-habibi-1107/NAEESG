@@ -4,13 +4,12 @@ import {
   Flex,
   Heading,
   SimpleGrid,
-  Select,
   Input,
   Button,
   Image,
   Text,
 } from "@chakra-ui/react";
-import {Product,allProducts,allCategories,allBrands, ICategoryId} from '../../models/product'
+import {allProducts,allCategories} from '../../models/product'
 
 
 
