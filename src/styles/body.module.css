@@ -37,13 +37,15 @@
     display: "flex";
     align-items: "center";
     color: var(--secondaryColor);
+    min-height: 2.5em
   }
 
   .blinking-text{
     font-weight: "bold";
     color: #f44336;
     margin-left: 5px;
-    animation: blink 0.6s steps(2, start) infinite,
+    animation: blink 0.6s steps(2, start) infinite;
+
   }
 
   @media(max-width:1280px){
@@ -56,7 +58,8 @@
     }
     .blinking-text{
       font-size: 1.75em;
-      line-height: 0px
+      line-height: 0px;
+      
     }
 
   }
@@ -179,12 +182,22 @@
   
     .content {
       text-align: center;
-      padding: 5px 10%;
+      padding: 10px 10%;
       font-size: 1.1em;
+    }
+
+    .title{
+      padding: 10px 0;
+    }
+
+    .blinking-text-box{
+      min-height: 2.5em;
     }
 
     .blinking-text{
       line-height: 15px;
+      min-height: 4em;
+      
     }
 
     .btn{
@@ -209,12 +222,12 @@
     .sliderImages {
       display: flex;
       flex-direction: row;
-      gap: 20px;
+      gap: 30px;
       animation: horizontal-slide 8s linear infinite;
     }
   
     .sliderImages img {
-      width: 200px;
+      width: 210px;
       height: auto;
       object-fit: contain;
     }
