@@ -1,28 +1,31 @@
 
-import Head from 'next/head';
 
+import BodySection from '../components/body';
+import About from "../components/about";
+import AllProducts from "../components/allProducts";
+import WiresAbout from "../components/wiresAbout";
+import BrandsSection from '../components/brands';
+import QuickContactSection from '../components/quickContact';
 
-// const geistSans = localFont({
-//   src: "./fonts/GeistVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900",
-// });
-// const geistMono = localFont({
-//   src: "./fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900",
-// });
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import '../styles/header.module.css';
+import "../styles/footer.module.css";
+import "../styles/body.module.css";
+import "../styles/about.module.css";
+import "../styles/allproducts.module.css";
+import "../styles/wiresabout.module.css";
+import "../styles/brands.module.css";
+import "../styles/quickContact.module.css";
 
 export default function Home() {
   return (
-<>
-<Head>
-        <title>My Next.js App</title>
-      </Head>
-      <div className="text-center p-8">
-        <h1 className="text-4xl font-bold">Welcome to My Next.js App!</h1>
-        <p className="mt-4">lmao<code>src/pages/index.tsx</code></p>
-      </div>
-</>
+      <>
+        <BodySection/>
+        <About/>
+        <AllProducts/>
+        <WiresAbout/>
+        <BrandsSection/>
+        <QuickContactSection/>
+      </>
   );
 }
