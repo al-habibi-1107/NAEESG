@@ -86,11 +86,11 @@ const BodySection: React.FC = () => {
       {/* Right Vertical Slider */}
       <div className={styles.slider}>
         <div className={styles.sliderImages}>
-          <Image width={100} height={100} src="/3PMCCB.png" alt="Solar Panel" />
-          <Image width={100} height={100}  src="/ACCL.png" alt="Light Bulb" />
-          <Image width={100} height={100}  src="/4PRCCB.png" alt="Wires" />
-          <Image width={100} height={100}  src="/2PMCCB.png" alt="Wires" />
-          <Image width={100} height={100}  src="/1PMCCB.png" alt="Wires" />
+         
+          <Image width={300} height={300}  src="/Products/Slider/SD_SLIDER.png" alt="Isolator" />
+          <Image width={300} height={300} src="/Products/Slider/DB_SLIDER.png" alt="DB" />
+          <Image width={300} height={300}  src="/Products/Slider/MCB_SLIDER.png" alt="MCB" />
+          <Image width={300} height={300}  src="/Products/Slider/RCCB_SLIDER.png" alt="RCCB" />
 
         </div>
       </div>

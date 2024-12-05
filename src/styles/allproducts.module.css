@@ -63,10 +63,7 @@
   }
   
   .productCard img {
-    width: auto;
-    height: auto;
-    max-width: 80%; /* Center image horizontally */
-    max-height: 70%; /* Center image vertically */
+    width: 100%; /* Center image vertically */
     margin: auto; /* Center image */
     display: block;
     object-fit: contain; 
@@ -136,6 +133,11 @@
       display: grid; /* Use grid layout */
       grid-template-columns: repeat(2, 1fr); /* Two equal columns */
       gap: 16px; /* Add spacing between items */
+    }
+    
+    .productsCard .img{
+      width: 200px;
+      height: 200px;
     }
 
     .productsLeft{
