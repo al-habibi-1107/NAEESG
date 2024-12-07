@@ -11,27 +11,28 @@ interface ProductCardProps {
   const ProductCard: React.FC<ProductCardProps> = ({ product, onLearnMore }) => {
   return (
 <Box
-  borderWidth="1px"
-  borderRadius="lg"
-  overflow="hidden"
-  boxShadow="sm"
-  _hover={{ boxShadow: "lg", transform: "translateY(-5px)" }}
-  transition="all 0.3s"
-  bg="white"
-  p={4}
-  w="100%"
-  maxW="300px"
-  m="auto"
-  position="relative" // For the brand label positioning
+   borderWidth="1px"
+   borderRadius="lg"
+   overflow="hidden"
+   boxShadow="sm"
+   _hover={{ boxShadow: "lg", transform: "translateY(-5px)" }}
+   transition="all 0.3s"
+   bg="white"
+   p={4}
+   w={{ base: "90%", md: "100%" }} // Full width on larger screens, compact on mobile
+   maxW="300px"
+   minH="380px" // Ensures consistent card height
+   m="auto"
+   position="relative" 
 >
   {/* Image */}
   <Box mb={3}>
     <Image
-      src={product.image}
-      alt={product.name}
-      objectFit="contain"
-      w="100%"
-      h={{ base: "150px", md: "200px" }}
+    src={product.image}
+    alt={product.name}
+    objectFit="contain"
+    w="100%"
+    h={{ base: "150px", md: "200px" }}
     />
   </Box>
 
@@ -52,11 +53,16 @@ interface ProductCardProps {
   </Box>
 
   {/* Product Description */}
-  <Box mb={3}>
+  <Box mb={2}>
     <Text
-      fontSize={{ base: "xs", md: "sm" }} // Smaller font size on mobile
-      color="gray.500"
-      textAlign="center"
+           fontSize={{ base: "xs", md: "sm" }}
+           color="gray.500"
+           textAlign="center"
+           whiteSpace="normal"
+           wordBreak="break-word"
+           lineHeight="1.4"
+           w={{base:"260px", md:"250px"}}
+           m="auto"
     >
       {product.description}
     </Text>
