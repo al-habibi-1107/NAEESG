@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import {
   Box,
   Flex,
@@ -7,10 +7,11 @@ import {
   Input,
   Button,
   Image,
-  Text,
 } from "@chakra-ui/react";
 
-import {allProducts,allCategories} from '../../models/product'
+import {allProducts} from '../../models/product';
+import { allCategories } from "../../models/category";
+import ProductCard from "../../components/productCard";
 
 
 
@@ -18,6 +19,22 @@ import {allProducts,allCategories} from '../../models/product'
 const ProductsPage: React.FC = ()=>{
     const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
     const [searchTerm, setSearchTerm] = useState("");
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const sliderBrands = [
+      "/bonton_logo.png",
+      "/siemens_logo.png",
+
+    ];
+
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % sliderBrands.length);
+      }, 3000); // Change slide every 3 seconds
+      return () => clearInterval(interval);
+    }, [sliderBrands.length]);
+  
 
      // Filtered Products
     const filteredProducts = allProducts.filter((product) => {
@@ -29,28 +46,45 @@ const ProductsPage: React.FC = ()=>{
         return matchesCategory && matchesSearch;
     });
 
+    const handleLearnMore = (productId: number) => {
+      alert(`Learn more about product ID: ${productId}`);
+    };
 
     return(<>
 
-<Box p="10px 19%">
-      {/* Brands Slider */}
-      <Heading size="lg" mb={4} textAlign="center" mt="90px" >
-        Our Brands
-      </Heading>
-      <Flex gap={4} overflowX="auto" mb={6}>
-        {["/bonton_logo.png", "/images/siemens_logo.png"].map(
-          (src, index) => (
-            <Image
-              key={index}
-              src={src}
-              alt={`Brand ${index}`}
-              boxSize="100px"
-              borderRadius="md"
-              boxShadow="md"
-            />
-          )
-        )}
-      </Flex>
+<Box p={{
+    base: "20vh 8%", // For smaller screens
+    md: "20vh 19%",   // For larger screens
+  }}>
+    <Box display="flex" alignItems="center" gap="10px" flexDirection={{base:"column",md:"row"}} >
+        {/* Title */}
+        <Heading className="title"  mb={6} textAlign="left" lineHeight="50px">
+          OUR BRANDS
+        </Heading>
+
+        {/* Brands Slider */}
+        <Box
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          mb={8}
+          width="100%"
+          overflow="hidden"
+          borderRadius="md"
+          boxShadow="md"
+          backgroundColor="gray.100"
+          p={4}
+        >
+          <Image
+            src={sliderBrands[currentIndex]}
+            alt="Brand Logo"
+            width="100px"
+            height="100px"
+            objectFit="contain"
+            transition="all 0.5s ease-in-out"
+          />
+        </Box>
+      </Box>
 
       {/* Filters */}
       <Flex mb={6} justifyContent="space-between" alignItems="center" gap={4}>
@@ -90,64 +124,21 @@ const ProductsPage: React.FC = ()=>{
 
         return (
           <Box key={category.id} mb={8}>
-            <Heading size="md" mb={4}>
+            <Heading size="md"  className="sub-title">
               {category.title}
             </Heading>
-            <SimpleGrid columns={[1, 2, 3]} >
-              {categoryProducts.map((product) => (
-                <Box
-                  key={product.id}
-                  borderWidth="1px"
-                  borderRadius="lg"
-                  overflow="hidden"
-                  p={4}
-                  boxShadow="md"
-                >
-                  <Image src={product.image} alt={product.name} mb={4} />
-                  <Heading size="sm" mb={2}>
-                    {product.name}
-                  </Heading>
-                  <Text fontSize="sm" color="gray.500" mb={2}>
-                    {product.description}
-                  </Text>
-                  <Text fontWeight="bold" color="teal.500" mb={2}>
-                    Price: ${product.price.toFixed(2)}
-                  </Text>
-                  <Text fontSize="sm" color="gray.700" mb={1}>
-                    Brand: {product.brand}
-                  </Text>
-                  <Box
-                    height="1px"
-                    bg="gray.300"
-                    my={4}
-                    />
-                  <Heading size="xs" mb={2}>
-                    Variants
-                  </Heading>
-                  {product.variants.map((variant, idx) => (
-                    <Box key={idx} mb={2}>
-                      <Text fontSize="sm" color="gray.600">
-                        {variant.poles}, {variant.residualCurrent},{" "}
-                        {variant.ratedCurrent}, {variant.mw} MW
-                      </Text>
-                    </Box>
-                  ))}
-                  <Box
-                    height="1px"
-                    bg="gray.300"
-                    my={4}
-                    />
-                  <Heading size="xs" mb={2}>
-                    Reference Numbers
-                  </Heading>
-                  {product.referenceNumbers.map((ref, idx) => (
-                    <Text key={idx} fontSize="sm" color="gray.600">
-                      {ref}
-                    </Text>
-                  ))}
-                </Box>
-              ))}
-            </SimpleGrid>
+            <Box 
+            overflowX={{ base: "scroll", md: "unset" }} 
+            whiteSpace={{ base: "nowrap", md: "normal" }} 
+            >
+              <SimpleGrid  columns={{ base: 1, md: 2, lg: 3 }}
+                gap="20px"
+                display={{ base: "inline-flex", md: "grid" }} >
+                {categoryProducts.map((product) => (
+                 <ProductCard key={product.id} product={product} onLearnMore={handleLearnMore}/>
+                ))}
+              </SimpleGrid>
+            </Box>
           </Box>
         );
       })}

@@ -31,6 +31,44 @@
   }
 }
 
+
+.title {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: var(--primaryColor);
+
+}
+
+.sub-title{
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--secondaryColor);
+  margin:  40px 0;
+  line-height: 1.3em;
+  background:var(--primaryColor);
+  padding: 10px;
+  color: #fff;
+  width: fit-content;
+}
+
+.card-title{
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--primaryColor);
+  margin:  40px 10px;
+  line-height: 28px;
+  white-space: normal; /* Ensures text wraps */
+  word-wrap: break-word; /* Break long words */
+}
+
+.card-desc{
+  font-size: 1em;
+  margin:  20px 10px;
+  line-height: 21px;
+  white-space: normal; /* Ensures text wraps */
+  word-wrap: break-word; /* Break long words */
+}
+
 body {
   color: var(--foreground);
   background: #fff;
