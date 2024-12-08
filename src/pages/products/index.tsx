@@ -11,7 +11,9 @@ import {
 
 import {allProducts} from '../../models/product';
 import { allCategories } from "../../models/category";
+import { allBrands } from "@/models/brand";
 import ProductCard from "../../components/productCard";
+import SearchBarWithFilters from "@/components/SearchBarWithFilters";
 
 
 
@@ -19,6 +21,9 @@ import ProductCard from "../../components/productCard";
 const ProductsPage: React.FC = ()=>{
     const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
     const [searchTerm, setSearchTerm] = useState("");
+
+    const [filteredProducts, setFilteredProducts] = useState(allProducts);
+    const [isSearchActive, setIsSearchActive] = useState(false);
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -35,20 +40,37 @@ const ProductsPage: React.FC = ()=>{
       return () => clearInterval(interval);
     }, [sliderBrands.length]);
   
-
-     // Filtered Products
-    const filteredProducts = allProducts.filter((product) => {
-        const matchesCategory =
-        selectedCategory === null || product.categoryId === selectedCategory;
-        const matchesSearch = product.name
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
-        return matchesCategory && matchesSearch;
-    });
+    
 
     const handleLearnMore = (productId: number) => {
       alert(`Learn more about product ID: ${productId}`);
     };
+
+
+
+  // Handle search logic
+  const handleSearch = (query: string) => {
+    setIsSearchActive(query.length > 0); // Activate search results if query is not empty
+    const filtered = allProducts.filter(
+      (product) =>
+        product.name.toLowerCase().includes(query.toLowerCase()) ||
+        product.referenceNumbers.some((ref) => ref.toLowerCase().includes(query.toLowerCase()))
+    );
+    setFilteredProducts(filtered);
+  };
+
+  // Handle filter changes
+  const handleFilterChange = (filters: { categoryId?: number; brandId?: number }) => {
+    const { categoryId, brandId } = filters;
+    const filtered = allProducts.filter((product) => {
+      return (
+        (!categoryId || product.categoryId === categoryId) &&
+        (!brandId || product.brandId === brandId)
+      );
+    });
+    setFilteredProducts(filtered);
+  };
+
 
     return(<>
 
@@ -56,92 +78,90 @@ const ProductsPage: React.FC = ()=>{
     base: "20vh 8%", // For smaller screens
     md: "20vh 19%",   // For larger screens
   }}>
-    <Box display="flex" alignItems="center" gap="10px" flexDirection={{base:"column",md:"row"}} >
-        {/* Title */}
-        <Heading className="title"  mb={6} textAlign="left" lineHeight="50px">
-          OUR BRANDS
-        </Heading>
+  {/* Title and Brands Slider */}
+  <Box display="flex" alignItems="center" gap="10px" flexDirection={{ base: "column", md: "row" }}>
+    {/* Title */}
+    <Heading className="title" mb={6} textAlign="left" lineHeight="50px">
+      OUR BRANDS
+    </Heading>
 
-        {/* Brands Slider */}
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          mb={8}
-          width="100%"
-          overflow="hidden"
-          borderRadius="md"
-          boxShadow="md"
-          backgroundColor="gray.100"
-          p={4}
-        >
-          <Image
-            src={sliderBrands[currentIndex]}
-            alt="Brand Logo"
-            width="100px"
-            height="100px"
-            objectFit="contain"
-            transition="all 0.5s ease-in-out"
-          />
+    {/* Brands Slider */}
+    <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      mb={8}
+      width="100%"
+      overflow="hidden"
+      borderRadius="md"
+      boxShadow="md"
+      backgroundColor="gray.100"
+      p={4}
+    >
+      <Image
+        src={sliderBrands[currentIndex]}
+        alt="Brand Logo"
+        width="100px"
+        height="100px"
+        objectFit="contain"
+        transition="all 0.5s ease-in-out"
+      />
+    </Box>
+  </Box>
+
+  {/* Filters */}
+  <SearchBarWithFilters
+        onSearch={handleSearch}
+        onFilterChange={handleFilterChange}
+        allCategories={allCategories}
+        allBrands={allBrands}
+      />
+  
+  {/* Products */}
+  {isSearchActive ? (
+        <Box>
+          <Heading size="md" mb={4}>
+            Search Results
+          </Heading>
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap="20px">
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => (
+                <ProductCard key={product.id} product={product} onLearnMore={handleLearnMore}/>
+              ))
+            ) : (
+              <p>No products found.</p>
+            )}
+          </SimpleGrid>
         </Box>
-      </Box>
+      ) : (
+        allCategories.map((category) => {
+          const categoryProducts = filteredProducts.filter(
+            (product) => product.categoryId === category.id
+          );
 
-      {/* Filters */}
-      <Flex mb={6} justifyContent="space-between" alignItems="center" gap={4}>
-        {/* <Select
-          placeholder="Filter by Category"
-          onChange={(e:React.ChangeEvent<HTMLSelectElement>) =>
-            setSelectedCategory(e.target.value ? Number(e.target.value) : null)
-          }
-          value={selectedCategory || ""}
-        >
-          {allCategories.map((category) => (
-            <option key={category.id} value={category.id}>
-              {category.title}
-            </option>
-          ))}
-        </Select> */}
-        <Input
-          placeholder="Search by product name"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <Button onClick={() => {
-          setSearchTerm("");
-          setSelectedCategory(null);
-        }}>
-          Reset Filters
-        </Button>
-      </Flex>
+          if (categoryProducts.length === 0) return null;
 
-      {/* Products by Category */}
-      {allCategories.map((category) => {
-        const categoryProducts = filteredProducts.filter(
-          (product) => product.categoryId === category.id
-        );
-
-        if (categoryProducts.length === 0) return null;
-
-        return (
-          <Box key={category.id} mb={8}>
-            <Heading size="md"  className="sub-title">
-              {category.title}
-            </Heading>
-            <Box 
-            overflowX={{ base: "scroll", md: "unset" }} 
-            whiteSpace={{ base: "nowrap", md: "normal" }} 
-            >
-              <SimpleGrid  columns={{ base: 1, md: 2, lg: 3 }}
+          return (
+            <Box key={category.id} mb={8}>
+              <Heading size="md" className="sub-title">{category.title}</Heading>
+              <Box
+               overflowX={{ base: "scroll", md: "unset" }} 
+               whiteSpace={{ base: "nowrap", md: "normal" }} 
+              >
+                <SimpleGrid 
+                columns={{ base: 1, md: 2, lg: 3 }}
                 gap="20px"
-                display={{ base: "inline-flex", md: "grid" }} >
-                {categoryProducts.map((product) => (
-                 <ProductCard key={product.id} product={product} onLearnMore={handleLearnMore}/>
-                ))}
-              </SimpleGrid>
+                display={{ base: "inline-flex", md: "grid" }}
+                >
+                  {categoryProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} onLearnMore={handleLearnMore}/>
+                  ))}
+                </SimpleGrid>
+              </Box>
             </Box>
-          </Box>
-        );
-      })}
+          );
+        })
+      )}
     </Box>
     </>);
 }
