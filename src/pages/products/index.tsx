@@ -12,6 +12,7 @@ import { allBrands } from "../../models/brand";
 import ProductCard from "../../components/productCard";
 import SearchBarWithFilters from "../../components/SearchBarWithFilters";
 import NoProductsMsg from "../../components/NoProductsMsg";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 

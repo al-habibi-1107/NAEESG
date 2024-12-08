@@ -7,7 +7,7 @@ import WiresAbout from "../components/wiresAbout";
 import BrandsSection from '../components/brands';
 import QuickContactSection from '../components/quickContact';
 
-import '@fortawesome/fontawesome-free/css/all.min.css';
+
 import '../styles/header.module.css';
 import "../styles/footer.module.css";
 import "../styles/body.module.css";
