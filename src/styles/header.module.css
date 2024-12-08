@@ -181,6 +181,8 @@
     /* Hamburger visibility */
     .hamburger {
       display: block;
+      font-size: 24px;
+  
     }
   
     /* Default hidden nav-links */
@@ -193,7 +195,7 @@
       display: flex;
       flex-direction: column;
       position: absolute;
-      top: 140px; /* Position below header */
+      top: 100%; /* Position below header */
       right: 0;
       background-color: #ffffff; /* White background */
       width: 100%;
