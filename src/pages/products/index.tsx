@@ -1,27 +1,22 @@
 import { useState,useEffect } from "react";
 import {
   Box,
-  Flex,
   Heading,
   SimpleGrid,
-  Input,
-  Button,
   Image,
 } from "@chakra-ui/react";
 
 import {allProducts} from '../../models/product';
 import { allCategories } from "../../models/category";
-import { allBrands } from "@/models/brand";
+import { allBrands } from "../../models/brand";
 import ProductCard from "../../components/productCard";
-import SearchBarWithFilters from "@/components/SearchBarWithFilters";
-import NoProductsMsg from "@/components/NoProductsMsg";
+import SearchBarWithFilters from "../../components/SearchBarWithFilters";
+import NoProductsMsg from "../../components/NoProductsMsg";
 
 
 
 
 const ProductsPage: React.FC = ()=>{
-    const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
-    const [searchTerm, setSearchTerm] = useState("");
 
     const [filteredProducts, setFilteredProducts] = useState(allProducts);
     const [isSearchActive, setIsSearchActive] = useState(false);

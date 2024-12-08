@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Box, Input, Flex, Button, SelectRoot, NativeSelectRoot, NativeSelectField } from "@chakra-ui/react";
-import { Select } from "@chakra-ui/react";
+import { Box, Input, Flex, NativeSelectRoot, NativeSelectField } from "@chakra-ui/react";
+
 
 interface SearchBarWithFiltersProps {
   onSearch: (query: string) => void;
