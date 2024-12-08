@@ -76,8 +76,8 @@ const ProductsPage: React.FC = ()=>{
     return(<>
 
 <Box p={{
-    base: "22vh 8%", // For smaller screens
-    md: "20vh 19%",   // For larger screens
+    base: "180px 8%", // For smaller screens
+    md: "180px 19%",   // For larger screens
   }}>
   {/* Title and Brands Slider */}
   <Box display="flex" alignItems="center" gap="10px" flexDirection={{ base: "column", md: "row" }}>

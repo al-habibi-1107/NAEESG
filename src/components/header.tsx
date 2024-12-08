@@ -46,13 +46,16 @@ const Header = ()=>{
       <div className={styles.navbar}>
         
         <div className={styles.logo}>
+          <Link href="/">
           <Image
             src="/logo.png"
             alt="NAE ElectroSwitchgear  Pvt. Ltd."
             width={60}
             height={60}
             className={styles['logo-image']}
+          
           />
+          </Link>
           <p className={styles["logo-text"]}>NAE Electro Switchgear Pvt. Ltd.</p>
         </div>
 
