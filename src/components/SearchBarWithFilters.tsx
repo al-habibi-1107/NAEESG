@@ -42,95 +42,100 @@ const SearchBarWithFilters: React.FC<SearchBarWithFiltersProps> = ({
 
   return (
     <Box
-      mb={8}
-      display="flex"
-      flexDirection={{ base: "column", md: "row" }}
-      alignItems="center"
-      gap={4}
+     mb={8} width="100%"
     >
-      {/* Search Bar */}
-      <Input
-        placeholder="Search by product name"
-        value={searchTerm}
-        onChange={handleSearchInputChange}
-        border="1px solid"
-        borderColor="var(--primaryColor)"
-        borderRadius="4px"
-        color="var(--primaryColor)"
-        size="md"
-        flex="1"
-        p="15px 20px"
-      />
-
-      {/* Filters */}
-     <Flex gap={4} wrap="wrap" justifyContent="flex-end">
-      {/* Category Filter */}
-      <NativeSelectRoot
-        style={{
-          width: "200px",
-          position: "relative",
-          border: "2px solid var(--primaryColor)", // Border color
-          borderRadius: "8px", // Rounded corners
-          overflow: "hidden",
-        }}
+      <Flex
+      flexDirection={{ base: "column", md: "row" }}
+      alignItems={{ base: "stretch", md: "center" }}
+      gap={4}
       >
-        <NativeSelectField
-          style={{
-            width: "100%",
-            padding: "8px",
-            background: "white", // Background color
-            color: "var(--primaryColor)", // Text color
-            fontSize: "16px",
-            border: "none", // Remove inner border
-            outline: "none",
-          }}
-          placeholder="Filter by Category"
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleCategoryChange(e)}
-        >
-          <option value="" style={{ color: "gray" }}>
-            Filter by Category
-          </option>
-          {allCategories.map((category) => (
-            <option key={category.id} value={category.id}>
-              {category.title}
-            </option>
-          ))}
-        </NativeSelectField>
-      </NativeSelectRoot>
 
-      {/* Brand Filter */}
-      <NativeSelectRoot
-        style={{
-          width: "200px",
-          position: "relative",
-          border: "2px solid var(--primaryColor)",
-          borderRadius: "8px",
-          overflow: "hidden",
-        }}
+     
+        {/* Search Bar */}
+        <Input
+          placeholder="Search by product name"
+          value={searchTerm}
+          onChange={handleSearchInputChange}
+          border="1px solid"
+          borderColor="var(--primaryColor)"
+          borderRadius="4px"
+          color="var(--primaryColor)"
+          size="md"
+          flex={{ base: "1 0 100%", md: "1 0 60%" }} 
+          p="15px 20px"
+        />
+
+        {/* Filters */}
+      <Flex 
+      gap={4}
+      flexWrap="wrap"
+      flex={{ base: "1 0 100%", md: "1 0 40%" }}
       >
-        <NativeSelectField
-          style={{
-            width: "100%",
-            padding: "8px",
-            background: "white",
-            color: "var(--primaryColor)",
-            fontSize: "16px",
-            border: "none",
-            outline: "none",
-          }}
-          placeholder="Filter by Brand"
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleBrandChange(e)}
+        {/* Category Filter */}
+        <NativeSelectRoot
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          gap={2}
+          size="sm"
+          borderRadius="full"
+          flex={{ base: "1 0 48%", md: "1 0 20%" }}
+          backgroundColor="var(--primaryColor)"
+          textAlign="center"
         >
-          <option value="" style={{ color: "gray" }}>
-            Filter by Brand
-          </option>
-          {allBrands.map((brand) => (
-            <option key={brand.id} value={brand.id}>
-              {brand.name}
+          <NativeSelectField
+          textAlign="center"
+          paddingLeft="12px"
+            placeholder="Filter by Category"
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleCategoryChange(e)}
+          >
+            <option value="" style={{ color: "gray" }}>
+              Filter by Category
             </option>
-          ))}
-        </NativeSelectField>
-      </NativeSelectRoot>
+            {allCategories.map((category) => {
+                const extractValueInParentheses = (input: string): string | null => {
+                  const match = input.match(/\(([^)]+)\)/); // Regex to extract value in parentheses
+                  return match ? match[1] : input;
+            };
+            
+            return (
+              <option key={category.id} value={category.id}>
+              {extractValueInParentheses(category.title)}
+              </option>
+            );
+          })}
+          </NativeSelectField>
+        </NativeSelectRoot>
+
+        {/* Brand Filter */}
+        <NativeSelectRoot
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          gap={2}
+          size="sm"
+          borderRadius="full"
+          flex={{ base: "1 0 48%", md: "1 0 20%" }}
+          backgroundColor="var(--primaryColor)"
+          textAlign="center"
+        >
+          <NativeSelectField
+                     textAlign="center"
+          paddingLeft="12px"
+            placeholder="Filter by Brand"
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleBrandChange(e)}
+          >
+            <option value="" style={{ color: "gray" }}>
+              Filter by Brand
+            </option>
+            {allBrands.map((brand) => (
+              <option key={brand.id} value={brand.id}>
+                {brand.name}
+              </option>
+            ))}
+          </NativeSelectField>
+        </NativeSelectRoot>
+      </Flex>
     </Flex>
     </Box>
   );

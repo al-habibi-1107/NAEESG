@@ -14,6 +14,7 @@ import { allCategories } from "../../models/category";
 import { allBrands } from "@/models/brand";
 import ProductCard from "../../components/productCard";
 import SearchBarWithFilters from "@/components/SearchBarWithFilters";
+import NoProductsMsg from "@/components/NoProductsMsg";
 
 
 
@@ -120,18 +121,22 @@ const ProductsPage: React.FC = ()=>{
   {/* Products */}
   {isSearchActive ? (
         <Box>
-          <Heading size="md" mb={4}>
+          <Heading size="md" className="card-title">
             Search Results
           </Heading>
-          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap="20px">
-            {filteredProducts.length > 0 ? (
+          {filteredProducts.length>0?
+          
+        
+          <SimpleGrid columns={{ base: 2, md: 2, lg: 3 }} gap="20px">
+            { 
               filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} onLearnMore={handleLearnMore}/>
               ))
-            ) : (
-              <p>No products found.</p>
-            )}
+            } 
           </SimpleGrid>
+          :
+          <NoProductsMsg/>
+          }
         </Box>
       ) : (
         allCategories.map((category) => {
