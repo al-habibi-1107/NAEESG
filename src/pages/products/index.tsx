@@ -50,7 +50,12 @@ const ProductsPage: React.FC = ()=>{
     const filtered = allProducts.filter(
       (product) =>
         product.name.toLowerCase().includes(query.toLowerCase()) ||
-        product.referenceNumbers.some((ref) => ref.toLowerCase().includes(query.toLowerCase()))
+    product.referenceNumbers.some((ref) =>
+      ref.toLowerCase().includes(query.toLowerCase())
+    ) ||
+    product.keywords.some((keyword) =>
+      keyword.toLowerCase().includes(query.toLowerCase())
+    )
     );
     setFilteredProducts(filtered);
   };
@@ -71,7 +76,7 @@ const ProductsPage: React.FC = ()=>{
     return(<>
 
 <Box p={{
-    base: "20vh 8%", // For smaller screens
+    base: "22vh 8%", // For smaller screens
     md: "20vh 19%",   // For larger screens
   }}>
   {/* Title and Brands Slider */}
@@ -117,12 +122,12 @@ const ProductsPage: React.FC = ()=>{
   {isSearchActive ? (
         <Box>
           <Heading size="md" className="card-title">
-            Search Results
+            Search Results : {filteredProducts.length}
           </Heading>
           {filteredProducts.length>0?
           
         
-          <SimpleGrid columns={{ base: 2, md: 2, lg: 3 }} gap="20px">
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap="20px">
             { 
               filteredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} onLearnMore={handleLearnMore}/>

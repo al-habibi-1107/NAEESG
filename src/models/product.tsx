@@ -12,7 +12,8 @@ export class Product {
   description: string;
   image: string;
   referenceNumbers: string[]; // List of reference numbers
-  variants: Variant[]; // List of product variants
+  variants: Variant[]; 
+  keywords: string[];// List of product variants
 
   constructor(
     id: number,
@@ -23,7 +24,8 @@ export class Product {
     description: string,
     image: string,
     referenceNumbers: string[],
-    variants: Variant[]
+    variants: Variant[],
+    keywords: string[]=[]
   ) {
     this.id = id;
     this.name = name;
@@ -34,6 +36,7 @@ export class Product {
     this.image = image;
     this.referenceNumbers = referenceNumbers;
     this.variants = variants;
+    this.keywords = keywords
   }
 
   // Get category name dynamically
@@ -96,7 +99,8 @@ export const allProducts: Product[] = [
       new Variant("2P", "30mA", "25A", 2),
       new Variant("2P", "100mA", "25A", 2),
       new Variant("2P", "300mA", "25A", 2),
-    ]
+    ],
+    ["RCCB", "Residual Current", "Circuit Breaker", "Earth Leakage", "2P", "Current Breaker"]
   ),
   new Product(
     2,
@@ -111,7 +115,8 @@ export const allProducts: Product[] = [
       new Variant("2P", "30mA", "40A", 2),
       new Variant("2P", "100mA", "40A", 2),
       new Variant("2P", "300mA", "40A", 2),
-    ]
+    ],
+    ["RCCB", "Residual Current", "Circuit Breaker", "Earth Leakage", "2P", "Current Breaker"]
   ),
   new Product(
     3,
@@ -127,6 +132,8 @@ export const allProducts: Product[] = [
       new Variant("2P", "100mA", "63A", 2),
       new Variant("2P", "300mA", "63A", 2),
     ]
+    ,
+    ["RCCB", "Residual Current", "Circuit Breaker", "Earth Leakage", "2P", "Current Breaker"]
   ),
   new Product(
     4,
@@ -141,7 +148,8 @@ export const allProducts: Product[] = [
       new Variant("4P", "30mA", "25A", 4),
       new Variant("4P", "100mA", "25A", 4),
       new Variant("4P", "300mA", "25A", 4),
-    ]
+    ],
+    ["RCCB", "Residual Current", "Circuit Breaker", "Earth Leakage", "4P", "Current Breaker"]
   ),
   new Product(
     5,
@@ -157,6 +165,8 @@ export const allProducts: Product[] = [
       new Variant("4P", "100mA", "40A", 4),
       new Variant("4P", "300mA", "40A", 4),
     ]
+    ,
+    ["RCCB", "Residual Current", "Circuit Breaker", "Earth Leakage", "4P", "Current Breaker"]
   ),
   new Product(
     6,
@@ -171,7 +181,8 @@ export const allProducts: Product[] = [
       new Variant("4P", "30mA", "63A", 4),
       new Variant("4P", "100mA", "63A", 4),
       new Variant("4P", "300mA", "63A", 4),
-    ]
+    ],
+    ["RCCB", "Residual Current", "Circuit Breaker", "Earth Leakage", "4P", "Current Breaker"]
   ),
   new Product(
     7,
@@ -187,7 +198,8 @@ export const allProducts: Product[] = [
       new Variant("1P", "Characteristic B: 5SJ6110-6RC, Characteristic C: 5SJ6110-7RC", "10A", 1),
       new Variant("1P", "Characteristic B: 5SJ6116-6RC, Characteristic C: 5SJ6116-7RC", "16A", 1),
       new Variant("1P", "Characteristic B: 5SJ6125-6RC, Characteristic C: 5SJ6125-7RC", "25A", 1)
-    ]
+    ],
+    ["MCB", "Miniature Circuit", "Circuit Breaker", "1P", "Overload Protection"]
   ),
   
   // 2P Product
@@ -206,6 +218,7 @@ export const allProducts: Product[] = [
       new Variant("2P", "Characteristic B: 5SJ6220-7RC, Characteristic C: 5SJ6220-7RC", "20A", 2),
       new Variant("2P", "Characteristic B: 5SJ6240-7RC, Characteristic C: 5SJ6240-7RC", "40A", 2)
     ]
+    , ["MCB", "Miniature Circuit", "Circuit Breaker", "2P", "Overload Protection"]
   ),
   
   // 3P Product
@@ -223,7 +236,8 @@ export const allProducts: Product[] = [
       new Variant("3P", "Characteristic B: 5SJ6310-7RC, Characteristic C: 5SJ6310-7RC", "10A", 3),
       new Variant("3P", "Characteristic B: 5SJ6320-7RC, Characteristic C: 5SJ6320-7RC", "20A", 3),
       new Variant("3P", "Characteristic B: 5SJ6340-7RC, Characteristic C: 5SJ6340-7RC", "40A", 3)
-    ]
+    ],
+    ["MCB", "Miniature Circuit", "Circuit Breaker", "3P", "Overload Protection"]
   ),
   
   // 4P Product
@@ -241,7 +255,8 @@ export const allProducts: Product[] = [
       new Variant("4P", "Characteristic B: 5SJ6410-7RC, Characteristic C: 5SJ6410-7RC", "10A", 4),
       new Variant("4P", "Characteristic B: 5SJ6420-7RC, Characteristic C: 5SJ6420-7RC", "20A", 4),
       new Variant("4P", "Characteristic B: 5SJ6440-7RC, Characteristic C: 5SJ6440-7RC", "40A", 4)
-    ]
+    ],
+    ["MCB", "Miniature Circuit", "Circuit Breaker", "4P", "Overload Protection"]
   ),
   new Product(
     11,
@@ -269,7 +284,8 @@ export const allProducts: Product[] = [
       new Variant("1P", "Reference No: 5TR44650RC20", "20A", 4),
       new Variant("1P", "Reference No: 5TR44650RC25", "25A", 4),
       new Variant("1P", "Reference No: 5TR44650RC30", "30A", 4)
-    ]
+    ],
+    ["ACCL", "Automatic Changeover", "Current Limiter", "High Load"]
   ),
   new Product(
     12,
@@ -286,7 +302,8 @@ export const allProducts: Product[] = [
       new Variant("N/A", "N/A", "12A", 12, ""),
       new Variant("N/A", "N/A", "16A", 16, ""),
       new Variant("N/A", "N/A", "20A", 20, ""),
-    ]
+    ],
+    ["DB", "Distribution Board", "12-Way Panel", "Circuit Board"]
   ),
   new Product(
     13,
@@ -303,7 +320,8 @@ export const allProducts: Product[] = [
       new Variant("N/A", "N/A", "12A", 12, ""),
       new Variant("N/A", "N/A", "16A", 16, ""),
       new Variant("N/A", "N/A", "20A", 20, ""),
-    ]
+    ],
+    ["DB", "Distribution Board", "12-Way Panel", "Circuit Board"]
   ),
   new Product(
     14,
@@ -319,7 +337,8 @@ export const allProducts: Product[] = [
       new Variant("N/A", "N/A", "6A", 6, ""),
       new Variant("N/A", "N/A", "8A", 8, ""),
       new Variant("N/A", "N/A", "12A", 12, ""),
-    ]
+    ],
+    ["DB", "Distribution Board", "12-Way Panel", "Circuit Board"]
   ),
   new Product(
     15,
@@ -335,7 +354,8 @@ export const allProducts: Product[] = [
       new Variant("N/A", "N/A", "6A", 6, ""),
       new Variant("N/A", "N/A", "8A", 8, ""),
       new Variant("N/A", "N/A", "12A", 12, ""),
-    ]
+    ],
+    ["DB", "Distribution Board", "12-Way Panel", "Circuit Board"]
   ),
   new Product(
     16,
@@ -353,7 +373,8 @@ export const allProducts: Product[] = [
       new Variant("1P", "N/A", "80A", 1, ""),
       new Variant("1P", "N/A", "100A", 1, ""),
       new Variant("1P", "N/A", "125A", 1, ""),
-    ]
+    ],
+    ["Switch Disconnector", "Isolator", "Load Break Switch", "Industrial Use"]
   ),
   new Product(
     17,
@@ -371,7 +392,8 @@ export const allProducts: Product[] = [
       new Variant("2P", "N/A", "80A", 2, ""),
       new Variant("2P", "N/A", "100A", 2, ""),
       new Variant("2P", "N/A", "125A", 2, ""),
-    ]
+    ],
+    ["Switch Disconnector", "Isolator", "Load Break Switch", "Industrial Use"]
   ),
   new Product(
     18,
@@ -389,7 +411,8 @@ export const allProducts: Product[] = [
       new Variant("3P", "N/A", "80A", 3, ""),
       new Variant("3P", "N/A", "100A", 3, ""),
       new Variant("3P", "N/A", "125A", 3, ""),
-    ]
+    ],
+    ["Switch Disconnector", "Isolator", "Load Break Switch", "Industrial Use"]
   ),
   new Product(
     19,
@@ -407,7 +430,8 @@ export const allProducts: Product[] = [
       new Variant("4P", "N/A", "80A", 4, ""),
       new Variant("4P", "N/A", "100A", 4, ""),
       new Variant("4P", "N/A", "125A", 4, ""),
-    ]
+    ],
+    ["Switch Disconnector", "Isolator", "Load Break Switch", "Industrial Use"]
   ),
 
 ];
