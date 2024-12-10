@@ -1,10 +1,17 @@
 import {useState,useEffect} from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 
 import styles from "../styles/body.module.css";
 
 const BodySection: React.FC = () => {
 
+  const router = useRouter();
+
+  // Handler for the View All button
+  const handleCTA = () => {
+    router.push("/products");
+  };
 
   const texts = ["CABLES & WIRES", "CIRCUIT BREAKERS", "DISTRIBUTION BOARDS"];
   const typingSpeed = 150; // Speed of typing in milliseconds
@@ -74,10 +81,10 @@ const BodySection: React.FC = () => {
           Authorised Dealer of Circuit Breakers , Switch Disconnectors and Distribution Boards
         </p>
         <div className={styles.buttons}>
-          <button className={`${styles.btn} ${styles.btnElectrical}`}>
+          <button onClick={()=>handleCTA()} className={`${styles.btn} ${styles.btnElectrical}`}>
             Wires & Cables
           </button>
-          <button className={`${styles.btn} ${styles.btnSolar}`}>
+          <button onClick={()=>handleCTA()} className={`${styles.btn} ${styles.btnSolar}`}>
             Electrical Appliances
           </button>
           

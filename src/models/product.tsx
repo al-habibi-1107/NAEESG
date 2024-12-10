@@ -197,7 +197,11 @@ export const allProducts: Product[] = [
       new Variant("1P", "Characteristic B: 5SJ6106-6RC, Characteristic C: 5SJ6106-7RC", "6A", 1),
       new Variant("1P", "Characteristic B: 5SJ6110-6RC, Characteristic C: 5SJ6110-7RC", "10A", 1),
       new Variant("1P", "Characteristic B: 5SJ6116-6RC, Characteristic C: 5SJ6116-7RC", "16A", 1),
-      new Variant("1P", "Characteristic B: 5SJ6125-6RC, Characteristic C: 5SJ6125-7RC", "25A", 1)
+      new Variant("1P", "Characteristic B: 5SJ6120-6RC, Characteristic C: 5SJ6120-7RC", "20A", 1),
+      new Variant("1P", "Characteristic B: 5SJ6125-6RC, Characteristic C: 5SJ6125-7RC", "25A", 1),
+      new Variant("1P", "Characteristic B: 5SJ6132-6RC, Characteristic C: 5SJ6132-7RC", "32A", 1),
+      new Variant("1P", "Characteristic B: 5SJ6140-6RC, Characteristic C: 5SJ6140-7RC", "40A", 1),
+      new Variant("1P", "Characteristic B: 5SJ6163-6RC, Characteristic C: 5SJ6163-7RC", "63A", 1)
     ],
     ["MCB", "Miniature Circuit", "Circuit Breaker", "1P", "Overload Protection"]
   ),
@@ -213,10 +217,14 @@ export const allProducts: Product[] = [
     "/Products/MCB/MCB_2P.png", // Image for 2P
     ["5SJ6206-7RC", "5SJ6210-7RC", "5SJ6220-7RC"], // Reference numbers for 2P
     [
-      new Variant("2P", "Characteristic B: 5SJ6206-7RC, Characteristic C: 5SJ6206-7RC", "6A", 2),
-      new Variant("2P", "Characteristic B: 5SJ6210-7RC, Characteristic C: 5SJ6210-7RC", "10A", 2),
-      new Variant("2P", "Characteristic B: 5SJ6220-7RC, Characteristic C: 5SJ6220-7RC", "20A", 2),
-      new Variant("2P", "Characteristic B: 5SJ6240-7RC, Characteristic C: 5SJ6240-7RC", "40A", 2)
+      new Variant("2P", "Characteristic C: 5SJ6206-7RC", "6A", 2),
+      new Variant("2P", "Characteristic C: 5SJ6210-7RC", "10A", 2),
+      new Variant("2P", "Characteristic C: 5SJ6216-7RC", "16A", 2),
+      new Variant("2P", "Characteristic C: 5SJ6220-7RC", "20A", 2),
+      new Variant("2P", "Characteristic C: 5SJ6225-7RC", "25A", 2),
+      new Variant("2P", "Characteristic C: 5SJ6232-7RC", "32A", 2),
+      new Variant("2P", "Characteristic C: 5SJ6240-7RC", "40A", 2),
+      new Variant("2P", "Characteristic C: 5SJ6263-7RC", "63A", 2)
     ]
     , ["MCB", "Miniature Circuit", "Circuit Breaker", "2P", "Overload Protection"]
   ),
@@ -232,10 +240,14 @@ export const allProducts: Product[] = [
     "/Products/MCB/MCB_3P.png", // Image for 3P
     ["5SJ6306-7RC", "5SJ6310-7RC", "5SJ6320-7RC"], // Reference numbers for 3P
     [
-      new Variant("3P", "Characteristic B: 5SJ6306-7RC, Characteristic C: 5SJ6306-7RC", "6A", 3),
-      new Variant("3P", "Characteristic B: 5SJ6310-7RC, Characteristic C: 5SJ6310-7RC", "10A", 3),
-      new Variant("3P", "Characteristic B: 5SJ6320-7RC, Characteristic C: 5SJ6320-7RC", "20A", 3),
-      new Variant("3P", "Characteristic B: 5SJ6340-7RC, Characteristic C: 5SJ6340-7RC", "40A", 3)
+      new Variant("3P", "Characteristic C: 5SJ6306-7RC", "6A", 3),
+      new Variant("3P", "Characteristic C: 5SJ6310-7RC", "10A", 3),
+      new Variant("3P", "Characteristic C: 5SJ6316-7RC", "16A", 3),
+      new Variant("3P", "Characteristic C: 5SJ6320-7RC", "20A", 3),
+      new Variant("3P", "Characteristic C: 5SJ6325-7RC", "25A", 3),
+      new Variant("3P", "Characteristic C: 5SJ6332-7RC", "32A", 3),
+      new Variant("3P", "Characteristic C: 5SJ6340-7RC", "40A", 3),
+      new Variant("3P", "Characteristic C: 5SJ6363-7RC", "63A", 3)
     ],
     ["MCB", "Miniature Circuit", "Circuit Breaker", "3P", "Overload Protection"]
   ),
@@ -251,10 +263,14 @@ export const allProducts: Product[] = [
     "/Products/MCB/MCB_4P.png", // Image for 4P
     ["5SJ6406-7RC", "5SJ6410-7RC", "5SJ6420-7RC"], // Reference numbers for 4P
     [
-      new Variant("4P", "Characteristic B: 5SJ6406-7RC, Characteristic C: 5SJ6406-7RC", "6A", 4),
-      new Variant("4P", "Characteristic B: 5SJ6410-7RC, Characteristic C: 5SJ6410-7RC", "10A", 4),
-      new Variant("4P", "Characteristic B: 5SJ6420-7RC, Characteristic C: 5SJ6420-7RC", "20A", 4),
-      new Variant("4P", "Characteristic B: 5SJ6440-7RC, Characteristic C: 5SJ6440-7RC", "40A", 4)
+      new Variant("4P", "Characteristic C: 5SJ6406-7RC", "6A", 4),
+      new Variant("4P", "Characteristic C: 5SJ6410-7RC", "10A", 4),
+      new Variant("4P", "Characteristic C: 5SJ6416-7RC", "16A", 4),
+      new Variant("4P", "Characteristic C: 5SJ6420-7RC", "20A", 4),
+      new Variant("4P", "Characteristic C: 5SJ6425-7RC", "25A", 4),
+      new Variant("4P", "Characteristic C: 5SJ6432-7RC", "32A", 4),
+      new Variant("4P", "Characteristic C: 5SJ6440-7RC", "40A", 4),
+      new Variant("4P", "Characteristic C: 5SJ6463-7RC", "63A", 4)
     ],
     ["MCB", "Miniature Circuit", "Circuit Breaker", "4P", "Overload Protection"]
   ),
@@ -273,17 +289,17 @@ export const allProducts: Product[] = [
       "5TR44650RC25", "5TR44650RC30"
     ], // Reference numbers
     [
-      new Variant("1P", "Reference No: 5TR44650RC02", "2A", 4),
-      new Variant("1P", "Reference No: 5TR44650RC03", "2.5A", 4),
-      new Variant("1P", "Reference No: 5TR44650RC04", "4A", 4),
-      new Variant("1P", "Reference No: 5TR44650RC05", "5A", 4),
-      new Variant("1P", "Reference No: 5TR44650RC06", "6A", 4),
-      new Variant("1P", "Reference No: 5TR44650RC08", "8A", 4),
-      new Variant("1P", "Reference No: 5TR44650RC10", "10A", 4),
-      new Variant("1P", "Reference No: 5TR44650RC15", "15A", 4),
-      new Variant("1P", "Reference No: 5TR44650RC20", "20A", 4),
-      new Variant("1P", "Reference No: 5TR44650RC25", "25A", 4),
-      new Variant("1P", "Reference No: 5TR44650RC30", "30A", 4)
+      new Variant("N/A", "5TR44650RC02", "2A", 4),
+      new Variant("N/A", "5TR44650RC03", "2.5A", 4),
+      new Variant("N/A", "5TR44650RC04", "4A", 4),
+      new Variant("N/A", "5TR44650RC05", "5A", 4),
+      new Variant("N/A", "5TR44650RC06", "6A", 4),
+      new Variant("N/A", "5TR44650RC08", "8A", 4),
+      new Variant("N/A", "5TR44650RC10", "10A", 4),
+      new Variant("N/A", "5TR44650RC15", "15A", 4),
+      new Variant("N/A", "5TR44650RC20", "20A", 4),
+      new Variant("N/A", "5TR44650RC25", "25A", 4),
+      new Variant("N/A", "5TR44650RC30", "30A", 4)
     ],
     ["ACCL", "Automatic Changeover", "Current Limiter", "High Load"]
   ),
@@ -297,11 +313,11 @@ export const allProducts: Product[] = [
     "/Products/DB/DB_1.png", // Product image path
     ["8GB30101RC04", "8GB30101RC08", "8GB30101RC12", "8GB30101RC16", "8GB30101RC20"], // Reference numbers
     [
-      new Variant("N/A", "N/A", "4A", 4, ""),
-      new Variant("N/A", "N/A", "8A", 8, ""),
-      new Variant("N/A", "N/A", "12A", 12, ""),
-      new Variant("N/A", "N/A", "16A", 16, ""),
-      new Variant("N/A", "N/A", "20A", 20, ""),
+      new Variant("4 module", "4", "N/A", 4, ""),
+      new Variant("8 module", "8", "N/A", 8, ""),
+      new Variant("12 module", "12", "N/A", 12, ""),
+      new Variant("16 module", "16", "N/A", 16, ""),
+      new Variant("20 module", "20", "N/A", 20, ""),
     ],
     ["DB", "Distribution Board", "12-Way Panel", "Circuit Board"]
   ),
@@ -315,11 +331,11 @@ export const allProducts: Product[] = [
     "/Products/DB/DB_2.png", // Product image path
     ["8GB30102RC04", "8GB30102RC08", "8GB30102RC12", "8GB30102RC16", "8GB30102RC20"], // Reference numbers
     [
-      new Variant("N/A", "N/A", "4A", 4, ""),
-      new Variant("N/A", "N/A", "8A", 8, ""),
-      new Variant("N/A", "N/A", "12A", 12, ""),
-      new Variant("N/A", "N/A", "16A", 16, ""),
-      new Variant("N/A", "N/A", "20A", 20, ""),
+      new Variant("4 module", "4", "N/A", 4, ""),
+      new Variant("8 module", "8", "N/A", 8, ""),
+      new Variant("12 module", "12", "N/A", 12, ""),
+      new Variant("16 module", "16", "N/A", 16, ""),
+      new Variant("20 module", "20", "N/A", 20, ""),
     ],
     ["DB", "Distribution Board", "12-Way Panel", "Circuit Board"]
   ),
@@ -333,10 +349,10 @@ export const allProducts: Product[] = [
     "/Products/DB/DB_1.png", // Product image path
     ["8GB30201RC04", "8GB30201RC06", "8GB30201RC08", "8GB30201RC12"], // Reference numbers
     [
-      new Variant("N/A", "N/A", "4A", 4, ""),
-      new Variant("N/A", "N/A", "6A", 6, ""),
-      new Variant("N/A", "N/A", "8A", 8, ""),
-      new Variant("N/A", "N/A", "12A", 12, ""),
+      new Variant("4 Way", "8+12", "N/A", 0, ""),
+      new Variant("6 Way", "8+18", "N/A", 0, ""),
+      new Variant("8 Way", "8+24", "N/A", 0, ""),
+      new Variant("12 Way", "8+36", "N/A", 0, ""),
     ],
     ["DB", "Distribution Board", "12-Way Panel", "Circuit Board"]
   ),
@@ -350,10 +366,10 @@ export const allProducts: Product[] = [
     "/Products/DB/DB_2.png", // Product image path
     ["8GB30202RC04", "8GB30202RC06", "8GB30202RC08", "8GB30202RC12"], // Reference numbers
     [
-      new Variant("N/A", "N/A", "4A", 4, ""),
-      new Variant("N/A", "N/A", "6A", 6, ""),
-      new Variant("N/A", "N/A", "8A", 8, ""),
-      new Variant("N/A", "N/A", "12A", 12, ""),
+      new Variant("4 Way", "8+12", "N/A", 0, ""),
+      new Variant("6 Way", "8+18", "N/A", 0, ""),
+      new Variant("8 Way", "8+24", "N/A", 0, ""),
+      new Variant("12 Way", "8+36", "N/A", 0, ""),
     ],
     ["DB", "Distribution Board", "12-Way Panel", "Circuit Board"]
   ),

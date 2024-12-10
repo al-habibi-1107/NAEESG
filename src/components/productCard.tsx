@@ -91,7 +91,9 @@ interface ProductCardProps {
     borderColor: "var(--primaryColor)", // Border color matches background on hover
     }}
     transition="all 0.3s ease-in-out" // Smooth transition effect
-    onClick={() => onLearnMore(product.id)}
+    onClick={() => {
+      console.log(`Navigating to product ID Card: ${product.id}`); 
+      onLearnMore(product.id)}}
   >
     Learn More
   </Button>
