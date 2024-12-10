@@ -5,6 +5,7 @@ import {
   SimpleGrid,
   Image,
 } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 
 import {allProducts} from '../../models/product';
 import { allCategories } from "../../models/category";
@@ -12,7 +13,7 @@ import { allBrands } from "../../models/brand";
 import ProductCard from "../../components/productCard";
 import SearchBarWithFilters from "../../components/SearchBarWithFilters";
 import NoProductsMsg from "../../components/NoProductsMsg";
-import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 
 
@@ -23,6 +24,8 @@ const ProductsPage: React.FC = ()=>{
     const [isSearchActive, setIsSearchActive] = useState(false);
 
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    const router = useRouter();
 
     const sliderBrands = [
       "/bonton_logo.png",
@@ -38,11 +41,6 @@ const ProductsPage: React.FC = ()=>{
     }, [sliderBrands.length]);
   
     
-
-    const handleLearnMore = (productId: number) => {
-      alert(`Learn more about product ID: ${productId}`);
-    };
-
 
 
   // Handle search logic
@@ -71,6 +69,14 @@ const ProductsPage: React.FC = ()=>{
       );
     });
     setFilteredProducts(filtered);
+  };
+
+
+
+  const handleLearnMore = (productId: number) => {
+    
+    console.log(`Navigating to product ID HANDEL: ${productId}`); 
+    router.push(`/products/${productId}`);
   };
 
 
@@ -131,7 +137,7 @@ const ProductsPage: React.FC = ()=>{
           <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap="20px">
             { 
               filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} onLearnMore={handleLearnMore}/>
+                <ProductCard key={product.id} product={product} onLearnMore={()=>handleLearnMore(product.id)}/>
               ))
             } 
           </SimpleGrid>
@@ -160,7 +166,7 @@ const ProductsPage: React.FC = ()=>{
                 display={{ base: "inline-flex", md: "grid" }}
                 >
                   {categoryProducts.map((product) => (
-                    <ProductCard key={product.id} product={product} onLearnMore={handleLearnMore}/>
+                    <ProductCard key={product.id} product={product} onLearnMore={()=>handleLearnMore(product.id)}/>
                   ))}
                 </SimpleGrid>
               </Box>
