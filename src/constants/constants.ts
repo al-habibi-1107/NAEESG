@@ -41,6 +41,8 @@ export const CONSTANTS = {
 
   // Error Messages
   PRODUCT_NOT_FOUND: "Product not found.",
+
+  MAPS_LINK: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3676.86200815317!2d86.1996439753085!3d22.84459427929891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f5e37f16d0898f%3A0x37f16d0aeee417e7!2sAyesha%20Merlin%20Apartment!5e0!3m2!1sen!2sin!4v1732559156891!5m2!1sen!2sin"
 };
 
 
