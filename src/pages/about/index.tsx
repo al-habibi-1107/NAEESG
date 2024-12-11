@@ -3,7 +3,7 @@ import { FaMapMarkerAlt, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 
 import InfoCard from "../../components/AboutCardComponent";
 import TeamMemberCard from "../../components/OwnerCard";
-import { CONSTANTS } from "@/constants/constants";
+
 
 const AboutPage : React.FC = () => {
     return (<>
@@ -82,7 +82,7 @@ const AboutPage : React.FC = () => {
         delivering innovation and excellence in every product and service we provide.
         </Text>
         <Text fontSize="lg" color="gray.600" mb={6}>
-        <strong>Mission:</strong> To ensure our clients' success by offering top-notch, reliable, and energy-efficient 
+        <strong>Mission:</strong> To ensure our clients success by offering top-notch, reliable, and energy-efficient 
         electrical solutions, while continuously striving for sustainability and growth.
         </Text>
     </Box>
