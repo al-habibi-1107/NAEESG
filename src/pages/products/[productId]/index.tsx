@@ -39,42 +39,42 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
 
   // Dynamically determine the columns to display
 
-  const categoryColumns: Record<
-  number,
-  Array<{ key: string; label: string; isFromVariant: boolean }>
-> = {
-  [ICategoryId.RCCB]: [
-    { key: "poles", label: CONSTANTS.PRODUCT_DETAILS.NO_POLES, isFromVariant: true },
-    { key: "residualCurrent", label: CONSTANTS.PRODUCT_DETAILS.RATED_RESIDUAL_CURRENT, isFromVariant: true },
-    { key: "ratedCurrent", label: CONSTANTS.PRODUCT_DETAILS.RATED_CURRENT_IN, isFromVariant: true },
-    { key: "mw", label: "MW", isFromVariant: true },
-    { key: "referenceNumbers", label:  CONSTANTS.PRODUCT_DETAILS.REFERENCE_NO, isFromVariant: false },
-  ],
-  [ICategoryId.MCB]: [
-    { key: "poles", label: CONSTANTS.PRODUCT_DETAILS.NO_POLES, isFromVariant: true },
-    { key: "ratedCurrent", label: CONSTANTS.PRODUCT_DETAILS.IN, isFromVariant: true },
-    { key: "residualCurrent", label: CONSTANTS.PRODUCT_DETAILS.REFERENCE_NO, isFromVariant: true },
-    { key: "mw", label: "MW", isFromVariant: true },
-  ],
-  [ICategoryId.ACCL]: [
-    { key: "ratedCurrent", label:  CONSTANTS.PRODUCT_DETAILS.RATED_CURRENT_IN, isFromVariant: true },
-    { key: "mw", label: CONSTANTS.PRODUCT_DETAILS.MW, isFromVariant: true },
-    { key: "residualCurrent", label: CONSTANTS.PRODUCT_DETAILS.REFERENCE_NO, isFromVariant: true },
-  ],
-  [ICategoryId.DB]: [
-    { key: "poles", label: "Description", isFromVariant: true },
-    { key: "residualCurrent", label: CONSTANTS.PRODUCT_DETAILS.MW, isFromVariant: true },
-    { key: "referenceNumbers", label: CONSTANTS.PRODUCT_DETAILS.REFERENCE_NO, isFromVariant: false},
-  ],
-  
-  [ICategoryId.ISOLATOR]: [
-    { key: "poles", label: CONSTANTS.PRODUCT_DETAILS.NO_POLES, isFromVariant: true },
-    { key: "residualCurrent", label: CONSTANTS.PRODUCT_DETAILS.IN, isFromVariant: true },
-    { key: "mw", label: "MW", isFromVariant: true },
-    { key: "referenceNumbers", label: CONSTANTS.PRODUCT_DETAILS.REFERENCE_NO, isFromVariant: false},
-  ],
-  // Add more categories as needed
-};
+    const categoryColumns: Record<
+    number,
+    Array<{ key: string; label: string; isFromVariant: boolean }>
+    > = {
+    [ICategoryId.RCCB]: [
+        { key: "poles", label: CONSTANTS.PRODUCT_DETAILS.NO_POLES, isFromVariant: true },
+        { key: "residualCurrent", label: CONSTANTS.PRODUCT_DETAILS.RATED_RESIDUAL_CURRENT, isFromVariant: true },
+        { key: "ratedCurrent", label: CONSTANTS.PRODUCT_DETAILS.RATED_CURRENT_IN, isFromVariant: true },
+        { key: "mw", label: "MW", isFromVariant: true },
+        { key: "referenceNumbers", label:  CONSTANTS.PRODUCT_DETAILS.REFERENCE_NO, isFromVariant: false },
+    ],
+    [ICategoryId.MCB]: [
+        { key: "poles", label: CONSTANTS.PRODUCT_DETAILS.NO_POLES, isFromVariant: true },
+        { key: "ratedCurrent", label: CONSTANTS.PRODUCT_DETAILS.IN, isFromVariant: true },
+        { key: "residualCurrent", label: CONSTANTS.PRODUCT_DETAILS.REFERENCE_NO, isFromVariant: true },
+        { key: "mw", label: "MW", isFromVariant: true },
+    ],
+    [ICategoryId.ACCL]: [
+        { key: "ratedCurrent", label:  CONSTANTS.PRODUCT_DETAILS.RATED_CURRENT_IN, isFromVariant: true },
+        { key: "mw", label: CONSTANTS.PRODUCT_DETAILS.MW, isFromVariant: true },
+        { key: "residualCurrent", label: CONSTANTS.PRODUCT_DETAILS.REFERENCE_NO, isFromVariant: true },
+    ],
+    [ICategoryId.DB]: [
+        { key: "poles", label: "Description", isFromVariant: true },
+        { key: "residualCurrent", label: CONSTANTS.PRODUCT_DETAILS.MW, isFromVariant: true },
+        { key: "referenceNumbers", label: CONSTANTS.PRODUCT_DETAILS.REFERENCE_NO, isFromVariant: false},
+    ],
+    
+    [ICategoryId.ISOLATOR]: [
+        { key: "poles", label: CONSTANTS.PRODUCT_DETAILS.NO_POLES, isFromVariant: true },
+        { key: "ratedCurrent", label: CONSTANTS.PRODUCT_DETAILS.IN, isFromVariant: true },
+        { key: "mw", label: "MW", isFromVariant: true },
+        { key: "referenceNumbers", label: CONSTANTS.PRODUCT_DETAILS.REFERENCE_NO, isFromVariant: false},
+    ],
+    // Add more categories as needed
+    };
 
       const columns = categoryColumns[product.categoryId] || [];
   return (
