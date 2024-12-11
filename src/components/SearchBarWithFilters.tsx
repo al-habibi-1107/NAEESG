@@ -86,7 +86,6 @@ const SearchBarWithFilters: React.FC<SearchBarWithFiltersProps> = ({
           <NativeSelectField
           textAlign="center"
           paddingLeft="12px"
-            placeholder="Filter by Category"
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleCategoryChange(e)}
           >
             <option value="" style={{ color: "gray" }}>
@@ -120,9 +119,8 @@ const SearchBarWithFilters: React.FC<SearchBarWithFiltersProps> = ({
           textAlign="center"
         >
           <NativeSelectField
-                     textAlign="center"
-          paddingLeft="12px"
-            placeholder="Filter by Brand"
+           textAlign="center"
+            paddingLeft="12px"
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleBrandChange(e)}
           >
             <option value="" style={{ color: "gray" }}>
