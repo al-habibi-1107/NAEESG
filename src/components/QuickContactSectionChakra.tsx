@@ -1,5 +1,6 @@
-import { Box, VStack, HStack, Heading, Text, Icon, Input, Textarea, Button, Link } from "@chakra-ui/react";
+import { Box, VStack, HStack, Heading, Input, Textarea, Link } from "@chakra-ui/react";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+
 import QuickContactCard from "./helpers/QuickContactCard";
 import NAEOutlineButton from "./helpers/NAEOutlineButton";
 
@@ -10,12 +11,12 @@ const QuickContactSectionChakra: React.FC = () => {
     py={8} 
     px={{ base: 0, md: 12 }} 
     borderRadius="4px"
-    mx={{md:"-36%" ,base:"-10px"}}
+    mx={{md:"-30%" ,base:"-10px"}}
     >
       <HStack 
       gap={{ base: 6, md: 0 }}
       flexDirection={{ base: "column", md: "row" }}
-      justifyContent="space-between"
+      justifyContent={{ base: "flex-start", md: "space-evenly" }}
       alignItems="center"
       >
        

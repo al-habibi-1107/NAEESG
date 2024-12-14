@@ -92,7 +92,7 @@ export const allProducts: Product[] = [
     ICategoryId.RCCB,
     IBrandId.SIEMENS,
     45.5,
-    "Residual Current Circuit Breaker with various ratings and poles",
+    "Residual Current Circuit Breaker with 25A rating and 2 pole",
     "/Products/RCCB/RCCB_2P.png",
     ["5SV53120RC", "5SV54120RC", "5SV56120RC"],
     [
@@ -108,7 +108,7 @@ export const allProducts: Product[] = [
     ICategoryId.RCCB,
     IBrandId.SIEMENS,
     50.0,
-    "Residual Current Circuit Breaker with various ratings and poles",
+    "Residual Current Circuit Breaker with 40A rating and 2 pole",
     "/Products/RCCB/RCCB_2P.png",
     ["5SV53140RC", "5SV54140RC", "5SV56140RC"],
     [
@@ -124,7 +124,7 @@ export const allProducts: Product[] = [
     ICategoryId.RCCB,
     IBrandId.SIEMENS,
     55.0,
-    "Residual Current Circuit Breaker with various ratings and poles",
+    "Residual Current Circuit Breaker with 63A rating and 2 pole",
     "/Products/RCCB/RCCB_2P.png",
     ["5SV53160RC", "5SV54160RC", "5SV56160RC"],
     [
@@ -141,7 +141,7 @@ export const allProducts: Product[] = [
     ICategoryId.RCCB,
     IBrandId.SIEMENS,
     60.0,
-    "Residual Current Circuit Breaker with various ratings and poles",
+    "Residual Current Circuit Breaker with 25A rating and 4 pole",
     "/Products/RCCB/RCCB_4P.png",
     ["5SV53420RC", "5SV54420RC", "5SV56420RC"],
     [
@@ -157,7 +157,7 @@ export const allProducts: Product[] = [
     ICategoryId.RCCB,
     IBrandId.SIEMENS,
     65.0,
-    "Residual Current Circuit Breaker with various ratings and poles",
+    "Residual Current Circuit Breaker with 40A rating and 4 pole",
     "/Products/RCCB/RCCB_4P.png",
     ["5SV53440RC", "5SV54440RC", "5SV56440RC"],
     [
@@ -174,7 +174,7 @@ export const allProducts: Product[] = [
     ICategoryId.RCCB,
     IBrandId.SIEMENS,
     65.0,
-    "Residual Current Circuit Breaker with various ratings and poles",
+    "Residual Current Circuit Breaker with 63A rating and 4 pole",
     "/Products/RCCB/RCCB_4P.png",
     ["5SV53460RC", "5SV54460RC", "5SV56460RC"],
     [
