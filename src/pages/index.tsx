@@ -8,6 +8,7 @@ import BrandsSection from '../components/brands';
 import QuickContactSection from '../components/quickContact';
 
 
+
 import '../styles/header.module.css';
 import "../styles/footer.module.css";
 import "../styles/body.module.css";
@@ -16,6 +17,7 @@ import "../styles/allproducts.module.css";
 import "../styles/wiresabout.module.css";
 import "../styles/brands.module.css";
 import "../styles/quickContact.module.css";
+
 
 export default function Home() {
   return (

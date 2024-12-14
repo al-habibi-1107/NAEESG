@@ -3,10 +3,10 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    padding: 50px 20%;
+    padding: 50px 19%;
     background-color: #ffffff;
     position: relative;
-    left: 2%;
+
     min-height: fit-content;
 
   }
