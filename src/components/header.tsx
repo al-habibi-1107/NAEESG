@@ -81,11 +81,11 @@ const Header = ()=>{
                PRODUCTS
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href="/brands" onClick={() => setMenuOpen(false)}>
                 BRANDS
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href="/contact" onClick={() => setMenuOpen(false)}>
                 CONTACT

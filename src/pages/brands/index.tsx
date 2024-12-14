@@ -3,7 +3,10 @@
 
 
  const BrandsPage = ()=>{
-    return(<></>);
+    return(<>
+    
+    
+    </>);
 }
 
 export default BrandsPage;

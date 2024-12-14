@@ -82,13 +82,14 @@ const SearchBarWithFilters: React.FC<SearchBarWithFiltersProps> = ({
           flex={{ base: "1 0 48%", md: "1 0 20%" }}
           backgroundColor="var(--primaryColor)"
           textAlign="center"
+          
         >
           <NativeSelectField
           textAlign="center"
           paddingLeft="12px"
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleCategoryChange(e)}
           >
-            <option value="" style={{ color: "gray" }}>
+            <option value="" style={{ backgroundColor: "var(--primaryColor)", color:"white" }}>
               Filter by Category
             </option>
             {allCategories.map((category) => {
@@ -98,7 +99,7 @@ const SearchBarWithFilters: React.FC<SearchBarWithFiltersProps> = ({
             };
             
             return (
-              <option key={category.id} value={category.id}>
+              <option key={category.id} value={category.id} style={{ backgroundColor: "var(--primaryColor)", color:"white" }}>
               {extractValueInParentheses(category.title)}
               </option>
             );
@@ -123,11 +124,11 @@ const SearchBarWithFilters: React.FC<SearchBarWithFiltersProps> = ({
             paddingLeft="12px"
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleBrandChange(e)}
           >
-            <option value="" style={{ color: "gray" }}>
+            <option value="" style={{ backgroundColor: "var(--primaryColor)", color:"white" }}>
               Filter by Brand
             </option>
             {allBrands.map((brand) => (
-              <option key={brand.id} value={brand.id}>
+              <option key={brand.id} value={brand.id} style={{ backgroundColor: "var(--primaryColor)", color:"white" }}>
                 {brand.name}
               </option>
             ))}

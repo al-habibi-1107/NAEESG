@@ -1,9 +1,8 @@
 import { Box, Text, Heading, SimpleGrid,Image } from "@chakra-ui/react";
-import { FaMapMarkerAlt, FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
 
-import InfoCard from "../../components/AboutCardComponent";
 import TeamMemberCard from "../../components/OwnerCard";
 import BrandsSectionChakra from "../../components/BrandsSectionChakra";
+import QuickContactCardSection from "../../components/QuickContactCards";
 
 
 const AboutPage : React.FC = () => {
@@ -170,29 +169,7 @@ const AboutPage : React.FC = () => {
       {/*Brands Section*/}
     <BrandsSectionChakra/>
       {/* Cards Section */}
-      <SimpleGrid columns={{ base: 1, md: 3 }} gap={8} mb={12} mt={12}>
-        <InfoCard
-          icon={FaMapMarkerAlt}
-          title="Head Office"
-          description={["Mon-Sat 9am to 5pm.", "Ayesha Merlin Shop G15, Pardih Road, Mango, Jamshedpur 832110"]}
-        />
-        <InfoCard
-          icon={FaPhoneAlt}
-          title="Phone & Email"
-          description={[
-            "+91 72762 50850 | +91 62018 52332",
-            "enterprisenae@gmail.com",
-          ]}
-        />
-        <InfoCard
-          icon={FaWhatsapp}
-          title="Connect on WhatsApp"
-          description={["+91 72762 50850"]}
-          buttonText="Contact Us"
-          buttonAction={() => alert("WhatsApp")}
-          buttonColor="green.500"
-        />
-      </SimpleGrid>
+    <QuickContactCardSection/>
       
     </Box>
     </>)
