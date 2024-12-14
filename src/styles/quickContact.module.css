@@ -70,6 +70,8 @@
     margin: 0;
     font-size: 0.9rem;
     color: var(--primaryColor);
+    word-break: break-word; /* Break long words or unbreakable text */
+    overflow-wrap: anywhere; 
   }
   
   .cardContent a {

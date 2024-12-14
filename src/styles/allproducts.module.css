@@ -126,7 +126,8 @@
     .productsSection {
       padding: 10px 10px;
       width: 100%;
-      overflow: hidden; /* Ensure no horizontal scrolling */
+      overflow: hidden;
+      /* Ensure no horizontal scrolling */
     }
   
     .productsGrid {

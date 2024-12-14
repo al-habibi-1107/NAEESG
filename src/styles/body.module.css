@@ -7,8 +7,7 @@
     align-items: start;
     padding: 3px 15%;
     gap: 2em;
-    min-height: 80vh;
-    max-height: 90vh;
+    height: 80vh;
     background-color: var(--backgroundColor);
     margin-top: 90px; 
     overflow: hidden;
