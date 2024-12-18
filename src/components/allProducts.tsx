@@ -27,25 +27,25 @@ const AllProducts = ()=>{
               <div className={styles.productCard}
               onClick={() => handleViewAll()}
               >
-              <Image src="/Products/MCB_ALL.png" alt="MCBs" width={150} height={150} />
+              <Image src="/Products/MCB_ALL.png" alt="MCBs" width={150} height={150} loading="lazy"/>
               <div className={styles.label}>MCB</div>
               </div>
               <div className={styles.productCard}
               onClick={() => handleViewAll()}
               >
-              <Image src="/Products/RCCB_ALL.png" alt="RCCBs" width={150} height={150} />
+              <Image src="/Products/RCCB_ALL.png" alt="RCCBs" width={150} height={150} loading="lazy"/>
               <div className={styles.label}>RCCB</div>
               </div>
               <div className={styles.productCard}
               onClick={() => handleViewAll()}  
               >
-              <Image src="/Products/ACCL_ALL.png" alt="ACCLs" width={150} height={150} />
+              <Image src="/Products/ACCL_ALL.png" alt="ACCLs" width={150} height={150} loading="lazy"/>
               <div className={styles.label}>ACCL</div>
               </div>
               <div className={styles.productCard}
               onClick={() => handleViewAll()}
               >
-              <Image src="/Products/SD_ALL.png" alt="Switch Disconnectors"width={150} height={150}  />
+              <Image src="/Products/SD_ALL.png" alt="Switch Disconnectors"width={150} height={150}  loading="lazy"/>
               <div className={styles.label}>Switch Disconnectors</div>
               </div>
           </div>

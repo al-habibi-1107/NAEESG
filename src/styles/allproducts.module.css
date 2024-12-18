@@ -29,8 +29,7 @@
   .productsLeft{
     display: flex;
     flex-direction:column;
-    gap: 20px;
-    padding: 10px;
+    width: fit-content;
   }
   .productsGrid {
     display: grid;
@@ -38,12 +37,13 @@
     gap: 20px;
     width: 100%;
     max-width: 800px;
+   
   }
   .productsItems{
     display: flex;
     align-items:center ;
     justify-content: center;
-    padding: 0;
+   
 
   }
   /* Product Card */
@@ -60,6 +60,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
   }
   
   .productCard img {
@@ -109,7 +110,7 @@
     transform: rotate(90deg);
     font-size: 7em;
     color: #f44336;
-    padding: 5px 5px;
+    padding: 0;
     color: var(--primaryColor); /* Text color hidden */
   /* -webkit-text-stroke: 2px #f44336; /* Outline border */
   /*font-weight: bold;

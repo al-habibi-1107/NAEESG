@@ -52,6 +52,7 @@ const BrandsSectionChakra: React.FC = () => {
                         maxW={{ base: "100px", md: "180px" }}
                         height="auto"
                         mb={2}
+                        loading="lazy"
                         />
                         <Text
                         fontSize="sm"
@@ -77,6 +78,7 @@ const BrandsSectionChakra: React.FC = () => {
                         maxW={{ base: "100px", md: "180px" }}
                         height="auto"
                         mb={2}
+                        loading="lazy"
                         />
                         <Text
                         fontSize="sm"

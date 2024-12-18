@@ -100,6 +100,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ product }) => {
           maxW="300px"
           mx="auto"
           mb={4}
+          loading="lazy"
         />
         <Heading size="lg" color="var(--primaryColor)" mb={2}>
           {product.name}
