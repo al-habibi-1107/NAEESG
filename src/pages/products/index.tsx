@@ -113,6 +113,7 @@ const ProductsPage: React.FC = ()=>{
         height="100px"
         objectFit="contain"
         transition="all 0.5s ease-in-out"
+        
       />
     </Box>
   </Box>

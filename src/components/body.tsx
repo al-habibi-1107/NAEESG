@@ -96,10 +96,10 @@ const BodySection: React.FC = () => {
       <div className={styles.slider}>
         <div className={styles.sliderImages}>
          
-          <Image width={300} height={300}  src="/Products/Slider/SD_SLIDER.png" alt="Isolator" />
-          <Image width={300} height={300} src="/Products/Slider/DB_SLIDER.png" alt="DB" />
-          <Image width={300} height={300}  src="/Products/Slider/MCB_SLIDER.png" alt="MCB" />
-          <Image width={300} height={300}  src="/Products/Slider/RCCB_SLIDER.png" alt="RCCB" />
+          <Image width={300} height={300}  src="/Products/Slider/SD_SLIDER.png" alt="Isolator" loading="lazy"/>
+          <Image width={300} height={300} src="/Products/Slider/DB_SLIDER.png" alt="DB" loading="lazy"/>
+          <Image width={300} height={300}  src="/Products/Slider/MCB_SLIDER.png" alt="MCB" loading="lazy"/>
+          <Image width={300} height={300}  src="/Products/Slider/RCCB_SLIDER.png" alt="RCCB" loading="lazy"/>
 
         </div>
       </div>

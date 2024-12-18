@@ -9,8 +9,8 @@ const AboutPage : React.FC = () => {
     return (<>
      <Box 
      p={{
-        base: "180px 8% 10px 8%", // For smaller screens
-        md: "180px 19% 50px 19%",   // For larger screens
+        base: "190px 8% 10px 8%", // For smaller screens
+        md: "190px 19% 50px 19%",   // For larger screens
       }}
       textAlign="center"
      position="relative"
@@ -27,7 +27,7 @@ const AboutPage : React.FC = () => {
            gap={4}
            p={8}
            position="relative" // Ensure blurry circles are relative to this box
-    zIndex={1}
+           zIndex={1}
         >
 
 {/* Neumorphic Oval: Right */}
@@ -70,7 +70,7 @@ const AboutPage : React.FC = () => {
         my={4}
         color="var(--primaryColor)"
         >
-        Quality First, Customer Always
+        Wired with Quality, Powered by Trust
         </Heading>
         <Text fontSize={{base:"0.9em",md:"1.1em"}} color="gray.700" maxW="550px">
         Serving <strong>100+ Vendors</strong> in <strong>Jharkhand</strong> with high quality Electrical Appliances & Wires and Cables
@@ -102,7 +102,7 @@ const AboutPage : React.FC = () => {
       shadow="md"
       objectFit="cover"
       width="100%"
-      
+      loading="lazy"
     />
                
     </Box>

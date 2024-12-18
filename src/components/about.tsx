@@ -13,6 +13,7 @@ const About = ()=>{
             alt="About Icon"
             width={100}
             height={100}
+            loading='lazy'
           />
         </div>
         <div className={styles["about-card-title"]}>

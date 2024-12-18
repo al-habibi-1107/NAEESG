@@ -15,6 +15,7 @@ const BrandsSection: React.FC = () => {
             alt="Siemens"
             width={250}
             height={150}
+            loading='lazy'
           />
         </div>
         <div className={styles.brandItem}>
@@ -23,6 +24,7 @@ const BrandsSection: React.FC = () => {
             alt="Bonton"
             width={250}
             height={150}
+            loading='lazy'
           />
         </div>
 
