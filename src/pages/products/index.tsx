@@ -90,7 +90,7 @@ const ProductsPage: React.FC = ()=>{
   <Box display="flex" alignItems="center" gap="10px" flexDirection={{ base: "column", md: "row" }}>
     {/* Title */}
     <Heading className="title" mb={6} textAlign="left" lineHeight="50px">
-      OUR BRANDS
+      OUR PRODUCTS
     </Heading>
 
     {/* Brands Slider */}
