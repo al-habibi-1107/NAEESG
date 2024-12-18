@@ -66,7 +66,7 @@ const BodySection: React.FC = () => {
       {/* Left Content */}
       <div className={styles.content}>
         <h1 className={styles.title}>
-        POWERING YOUR NEEDS WITH THE BEST 
+        NAE ELECTRO SWITCHGEAR POWERS YOU WITH THE BEST 
         <div className={styles["blinking-text-box"]}>
        <span>{currentText}</span>
       <span
@@ -78,7 +78,8 @@ const BodySection: React.FC = () => {
         </h1>
         <p className={styles.description}>
         Super Distributor for <b>SIEMENS & BONTON Cables in Jharkhand</b><br/>
-          Authorised Dealer of Circuit Breakers , Switch Disconnectors and Distribution Boards
+        Trusted Partner for Electrical Appliances, Serving
+          <b> 50+</b> Vendors and <b>10+</b> Commercial Projects
         </p>
         <div className={styles.buttons}>
           <button onClick={()=>handleCTA()} className={`${styles.btn} ${styles.btnElectrical}`}>
@@ -95,10 +96,10 @@ const BodySection: React.FC = () => {
       <div className={styles.slider}>
         <div className={styles.sliderImages}>
          
-          <Image width={300} height={300}  src="/Products/Slider/SD_SLIDER.png" alt="Isolator" />
-          <Image width={300} height={300} src="/Products/Slider/DB_SLIDER.png" alt="DB" />
-          <Image width={300} height={300}  src="/Products/Slider/MCB_SLIDER.png" alt="MCB" />
-          <Image width={300} height={300}  src="/Products/Slider/RCCB_SLIDER.png" alt="RCCB" />
+          <Image width={300} height={300}  src="/Products/Slider/SD_SLIDER.png" alt="Isolator" loading="lazy"/>
+          <Image width={300} height={300} src="/Products/Slider/DB_SLIDER.png" alt="DB" loading="lazy"/>
+          <Image width={300} height={300}  src="/Products/Slider/MCB_SLIDER.png" alt="MCB" loading="lazy"/>
+          <Image width={300} height={300}  src="/Products/Slider/RCCB_SLIDER.png" alt="RCCB" loading="lazy"/>
 
         </div>
       </div>

@@ -33,6 +33,7 @@ interface ProductCardProps {
     objectFit="contain"
     w="100%"
     h={{ base: "150px", md: "200px" }}
+    loading="lazy"
     />
   </Box>
 

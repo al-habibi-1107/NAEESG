@@ -5,13 +5,14 @@
     display: flex;
     justify-content: center;
     align-items: start;
+    padding-top: 120px; /* Add padding to avoid overlap */
     padding: 3px 15%;
     gap: 2em;
     height: 80vh;
     background-color: var(--backgroundColor);
     margin-top: 90px; 
     overflow: hidden;
-    
+    position: relative; /* To establish z-index context */
 
   }
 
@@ -25,10 +26,11 @@
     margin-top: 10vh;
     flex: 1;
     text-align: left;
+    height: 80vh;
   }
   
   .title {
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: bold;
     color: #1a1a2e;;
     margin-bottom: 20px;
@@ -49,19 +51,41 @@
   }
 
   @media(max-width:1280px){
+    .bodyContainer {
+      padding-top: 50px; /* Increase spacing for smaller desktop devices */
+      /* Allow content to flow naturally */
+    }
+    .title {
+      font-size: clamp(1.5rem, 2vw, 2rem); /* Responsive font sizing */
+    }
+  
+    .buttons {
+      gap: 15px; /* Adjust button spacing */
+    }
+  
+    .btn {
+      font-size: clamp(12px, 1.5vw, 14px); /* Responsive button font */
+      padding: 10px 15px;
+    }
     .content {
-      margin-top: 2vh;
-      padding-top: 10vh ;
+      margin-top: 5vh; /* Adjust content alignment */
     }
-    .title{
-      font-size: 1.75em;
-    }
+
     .blinking-text{
       font-size: 1.75em;
       line-height: 0px;
       
     }
 
+  }
+
+  .navbar {
+    z-index: 1000; /* Keep navbar on top */
+  }
+  
+  .bodyContainer,
+  .content {
+    z-index: 1; /* Push content below navbar */
   }
 
   @keyframes blink {
@@ -130,6 +154,7 @@
     align-items: center;
     overflow-y: hidden;
     position: relative;
+    height: 80vh;
 
   }
   

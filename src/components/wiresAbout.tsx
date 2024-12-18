@@ -24,7 +24,7 @@ const WiresAbout = ()=>{
                 </button>
             </div>
             <div className={styles.rightContent}>
-                <Image className={styles.rightImg} src='/BONTON.png' alt='Bonton' width={350} height={350}/>
+                <Image className={styles.rightImg} src='/BONTON.png' alt='Bonton' width={350} height={350} loading='lazy'/>
                 
             </div>
         </section>

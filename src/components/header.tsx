@@ -53,7 +53,7 @@ const Header = ()=>{
             width={60}
             height={60}
             className={styles['logo-image']}
-          
+          loading='lazy'
           />
           </Link>
           <p className={styles["logo-text"]}>NAE Electro Switchgear Pvt. Ltd.</p>
