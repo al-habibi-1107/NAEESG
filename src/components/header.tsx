@@ -34,7 +34,7 @@ const Header = ()=>{
       <div className={styles['top-bar']}>
         <div className={styles['contact-info']}>
           <span>
-            <i className="fas fa-phone"></i> Quick Contact: +91 72762 50850 | +91 93342 02265
+            <i className="fas fa-phone"></i> Quick Contact: +91 62018 52332 | +91 93342 02265
           </span>
           <span>
             <i className="fas fa-envelope"></i> enterprisenae@gmail.com
