@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Input, Flex, NativeSelectRoot, NativeSelectField } from "@chakra-ui/react";
+import { Box, Input, Flex, Select } from "@chakra-ui/react";
 
 
 interface SearchBarWithFiltersProps {
@@ -72,7 +72,7 @@ const SearchBarWithFilters: React.FC<SearchBarWithFiltersProps> = ({
       flex={{ base: "1 0 100%", md: "1 0 40%" }}
       >
         {/* Category Filter */}
-        <NativeSelectRoot
+        <Select
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -82,13 +82,9 @@ const SearchBarWithFilters: React.FC<SearchBarWithFiltersProps> = ({
           flex={{ base: "1 0 48%", md: "1 0 20%" }}
           backgroundColor="var(--primaryColor)"
           textAlign="center"
-          
-        >
-          <NativeSelectField
-          textAlign="center"
           paddingLeft="12px"
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleCategoryChange(e)}
-          >
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleCategoryChange(e)}
+        >
             <option value="" style={{ backgroundColor: "var(--primaryColor)", color:"white" }}>
               Filter by Category
             </option>
@@ -104,11 +100,10 @@ const SearchBarWithFilters: React.FC<SearchBarWithFiltersProps> = ({
               </option>
             );
           })}
-          </NativeSelectField>
-        </NativeSelectRoot>
+          </Select>
 
         {/* Brand Filter */}
-        <NativeSelectRoot
+        <Select
           display="flex"
           alignItems="center"
           justifyContent="center"
@@ -118,12 +113,9 @@ const SearchBarWithFilters: React.FC<SearchBarWithFiltersProps> = ({
           flex={{ base: "1 0 48%", md: "1 0 20%" }}
           backgroundColor="var(--primaryColor)"
           textAlign="center"
+          paddingLeft="12px"
+          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleBrandChange(e)}
         >
-          <NativeSelectField
-           textAlign="center"
-            paddingLeft="12px"
-            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleBrandChange(e)}
-          >
             <option value="" style={{ backgroundColor: "var(--primaryColor)", color:"white" }}>
               Filter by Brand
             </option>
@@ -132,8 +124,7 @@ const SearchBarWithFilters: React.FC<SearchBarWithFiltersProps> = ({
                 {brand.name}
               </option>
             ))}
-          </NativeSelectField>
-        </NativeSelectRoot>
+          </Select>
       </Flex>
     </Flex>
     </Box>

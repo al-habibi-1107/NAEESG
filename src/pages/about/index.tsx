@@ -160,10 +160,15 @@ const AboutPage : React.FC = () => {
             designation="Managing Director"
           />
           <TeamMemberCard
+            imageSrc="/Team/person_2.jpeg"
+            name="Mr.Saquib Javed"
+            designation="Managing Director"
+          />
+          {/* <TeamMemberCard
             imageSrc="/Team/person_3.jpeg"
             name="Mr.Sadique Javed"
             designation="Managing Director"
-          />
+          /> */}
         </SimpleGrid>
       </Box>
       {/*Brands Section*/}
