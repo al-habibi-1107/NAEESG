@@ -4,6 +4,8 @@ import Image from "next/image";
 
 import styles from "../styles/body.module.css";
 
+const texts = ["CABLES & WIRES", "CIRCUIT BREAKERS", "DISTRIBUTION BOARDS"];
+
 const BodySection: React.FC = () => {
 
   const router = useRouter();
@@ -13,7 +15,6 @@ const BodySection: React.FC = () => {
     router.push("/products");
   };
 
-  const texts = ["CABLES & WIRES", "CIRCUIT BREAKERS", "DISTRIBUTION BOARDS"];
   const typingSpeed = 150; // Speed of typing in milliseconds
   const deletingSpeed = 100; // Speed of deleting in milliseconds
   const delayBetweenTexts = 2000; // Delay between switching texts in milliseconds

@@ -1,9 +1,14 @@
 import React from "react";
 import {
-    Box,
-    Heading,
-    Table,
-  } from "@chakra-ui/react";
+  Box,
+  Heading,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+} from "@chakra-ui/react";
 
 import { Variant } from "../models/product";
 
@@ -31,36 +36,36 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
         Variants
         </Heading>
         <Box overflowX="auto">
-            <Table.Root variant="outline" size="md" colorScheme="gray">
-                <Table.Header bg="var(--primaryColor)">
-                <Table.Row>
-                    {columns.map((col)=>(
-                        <Table.ColumnHeader key={col.key} color="white" textAlign="center">{col.label}</Table.ColumnHeader>
-                    ))}
-                </Table.Row>
-                </Table.Header>
-                <Table.Body>
-                {variants.map((variant, index) => (
-                    <Table.Row 
-                    key={index}
-                    _hover={{
-                        bg: "var(--backgroundColor)", // Row hover effect
-                        color: "gray.800",
-                    }}
-                    textAlign="center"
-                    color="var(--primaryColor)"
-                    >
-                    {columns.map((col)=>(
-                        <Table.Cell key={col.key} textAlign="center" >
-                        {col.isFromVariant
-                      ? (variant[col.key as keyof Variant] as string)  || "N/A" // Access data from Variant
-                      : referenceNumbers[index] || "N/A"} 
-                        </Table.Cell >
-                    ))}
-                    </Table.Row>
+          <Table variant="simple" size="md" colorScheme="gray">
+            <Thead bg="var(--primaryColor)">
+              <Tr>
+                {columns.map((col) => (
+                  <Th key={col.key} color="white" textAlign="center">
+                    {col.label}
+                  </Th>
                 ))}
-                </Table.Body>
-            </Table.Root>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {variants.map((variant, index) => (
+                <Tr
+                  key={index}
+                  _hover={{
+                    bg: "var(--backgroundColor)",
+                    color: "gray.800",
+                  }}
+                >
+                  {columns.map((col) => (
+                    <Td key={col.key} textAlign="center" color="var(--primaryColor)">
+                      {col.isFromVariant
+                        ? ((variant[col.key as keyof Variant] as unknown as string) || "N/A")
+                        : (referenceNumbers[index] ?? "N/A")}
+                    </Td>
+                  ))}
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
         </Box>
     </Box>);
     }
