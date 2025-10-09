@@ -12,11 +12,13 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "nodenext",
-    "moduleResolution": "nodenext", // Compatible with your current TypeScript (no 'bundler' support)
+    "moduleResolution": "nodenext",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve", // Updated to "react-jsx"
+    "jsx": "preserve",
     "incremental": true,
+    "ignoreDeprecations": "6.0",
+    "baseUrl": "./", // Ensures proper path resolution
     "paths": {
       "@/*": [
         "./src/*"

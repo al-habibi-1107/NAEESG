@@ -3,7 +3,6 @@ import {
   Box,
   Heading,
   Table,
-  TableContainer,
   Thead,
   Tbody,
   Tr,
@@ -36,8 +35,8 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
         <Heading size="md" mb={6} textAlign="center" color="var(--primaryColor)">
         Variants
         </Heading>
-        <TableContainer>
-          <Table variant="outline" size="md" colorScheme="gray">
+        <Box overflowX="auto">
+          <Table variant="simple" size="md" colorScheme="gray">
             <Thead bg="var(--primaryColor)">
               <Tr>
                 {columns.map((col) => (
@@ -51,21 +50,23 @@ const DynamicTable: React.FC<DynamicTableProps> = ({
               {variants.map((variant, index) => (
                 <Tr
                   key={index}
-                  _hover={{ bg: "var(--backgroundColor)", color: "gray.800" }}
-                  color="var(--primaryColor)"
+                  _hover={{
+                    bg: "var(--backgroundColor)",
+                    color: "gray.800",
+                  }}
                 >
                   {columns.map((col) => (
-                    <Td key={col.key} textAlign="center">
+                    <Td key={col.key} textAlign="center" color="var(--primaryColor)">
                       {col.isFromVariant
                         ? ((variant[col.key as keyof Variant] as unknown as string) || "N/A")
-                        : referenceNumbers[index] || "N/A"}
+                        : (referenceNumbers[index] ?? "N/A")}
                     </Td>
                   ))}
                 </Tr>
               ))}
             </Tbody>
           </Table>
-        </TableContainer>
+        </Box>
     </Box>);
     }
 

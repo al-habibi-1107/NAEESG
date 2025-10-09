@@ -28,14 +28,16 @@ const SearchBarWithFilters: React.FC<SearchBarWithFiltersProps> = ({
 
   // Handle category filter changes
   const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const categoryId = parseInt(e.target.value) || undefined;
+    const n = parseInt(e.target.value, 10);
+    const categoryId = Number.isNaN(n) ? undefined : n;
     setSelectedCategory(categoryId);
     onFilterChange({ categoryId, brandId: selectedBrand }); // Notify parent component
   };
 
   // Handle brand filter changes
   const handleBrandChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const brandId = parseInt(e.target.value) || undefined;
+    const n = parseInt(e.target.value, 10);
+    const brandId = Number.isNaN(n) ? undefined : n;
     setSelectedBrand(brandId);
     onFilterChange({ categoryId: selectedCategory, brandId }); // Notify parent component
   };
@@ -73,58 +75,59 @@ const SearchBarWithFilters: React.FC<SearchBarWithFiltersProps> = ({
       >
         {/* Category Filter */}
         <Select
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          gap={2}
           size="sm"
           borderRadius="full"
           flex={{ base: "1 0 48%", md: "1 0 20%" }}
-          backgroundColor="var(--primaryColor)"
-          textAlign="center"
+          bg="var(--primaryColor)"
+          color="white"
           paddingLeft="12px"
           onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleCategoryChange(e)}
+          value={selectedCategory ?? ""}
         >
-            <option value="" style={{ backgroundColor: "var(--primaryColor)", color:"white" }}>
-              Filter by Category
-            </option>
-            {allCategories.map((category) => {
-                const extractValueInParentheses = (input: string): string | null => {
-                  const match = input.match(/\(([^)]+)\)/); // Regex to extract value in parentheses
-                  return match ? match[1] : input;
+          <option value="" style={{ backgroundColor: "var(--primaryColor)", color: "white" }}>
+            Filter by Category
+          </option>
+          {allCategories.map((category) => {
+            const extractValueInParentheses = (input: string): string | null => {
+              const match = input.match(/\(([^)]+)\)/);
+              return match ? match[1] : input;
             };
-            
             return (
-              <option key={category.id} value={category.id} style={{ backgroundColor: "var(--primaryColor)", color:"white" }}>
-              {extractValueInParentheses(category.title)}
+              <option
+                key={category.id}
+                value={category.id}
+                style={{ backgroundColor: "var(--primaryColor)", color: "white" }}
+              >
+                {extractValueInParentheses(category.title)}
               </option>
             );
           })}
-          </Select>
+        </Select>
 
         {/* Brand Filter */}
         <Select
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          gap={2}
           size="sm"
           borderRadius="full"
           flex={{ base: "1 0 48%", md: "1 0 20%" }}
-          backgroundColor="var(--primaryColor)"
-          textAlign="center"
+          bg="var(--primaryColor)"
+          color="white"
           paddingLeft="12px"
           onChange={(e: React.ChangeEvent<HTMLSelectElement>) => handleBrandChange(e)}
+          value={selectedBrand ?? ""}
         >
-            <option value="" style={{ backgroundColor: "var(--primaryColor)", color:"white" }}>
-              Filter by Brand
+          <option value="" style={{ backgroundColor: "var(--primaryColor)", color: "white" }}>
+            Filter by Brand
+          </option>
+          {allBrands.map((brand) => (
+            <option
+              key={brand.id}
+              value={brand.id}
+              style={{ backgroundColor: "var(--primaryColor)", color: "white" }}
+            >
+              {brand.name}
             </option>
-            {allBrands.map((brand) => (
-              <option key={brand.id} value={brand.id} style={{ backgroundColor: "var(--primaryColor)", color:"white" }}>
-                {brand.name}
-              </option>
-            ))}
-          </Select>
+          ))}
+        </Select>
       </Flex>
     </Flex>
     </Box>
