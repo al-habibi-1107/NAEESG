@@ -37,7 +37,7 @@ const Header = ()=>{
             <i className="fas fa-phone"></i> Quick Contact: +91 62018 52332 | +91 93342 02265
           </span>
           <span>
-            <i className="fas fa-envelope"></i> enterprisenae@gmail.com
+            <i className="fas fa-envelope"></i> enterprisesnae@gmail.com
           </span>
         </div>
       </div>

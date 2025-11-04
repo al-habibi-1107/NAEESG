@@ -7,8 +7,6 @@ import Header from '../components/header';
 import Footer from "../components/Footer";
 
 
-
-
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../styles/globals.css';
 
