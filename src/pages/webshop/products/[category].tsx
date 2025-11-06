@@ -32,25 +32,11 @@ interface PageProps {
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:8080/api/webshop';
 
-// Utility: build a query string preserving existing params, replacing one
-function withParam(routerQuery: Record<string, any>, key: string, val?: string | null) {
-  const q = new URLSearchParams();
-  for (const [k, v] of Object.entries(routerQuery)) {
-    if (k === key) continue; // will be set below
-    if (v == null) continue;
-    if (Array.isArray(v)) {
-      v.forEach((vv) => q.append(k, String(vv)));
-    } else {
-      q.set(k, String(v));
-    }
-  }
-  if (val) q.set(key, val);
-  return q.toString();
-}
+type Query = { [key: string]: string | string[] | number | undefined };
 
 export default function CategoryPage({ category, products, facets, error }: PageProps) {
   const router = useRouter();
-  const query = router.query as Record<string, any>;
+  const query = router.query as Query;
 
   const pageTitle = `${category} | Products`;
 
@@ -61,7 +47,7 @@ export default function CategoryPage({ category, products, facets, error }: Page
         <meta name="robots" content="index,follow" />
       </Head>
 
-      <main style={{ maxWidth: 1200, margin: '24px auto', padding: '0 16px' }}>
+      <main style={{ maxWidth: 1200, margin: '24px auto', padding: '180px 4% 10px 4%' }}>
         <h1 style={{ marginBottom: 16 }}>{category}</h1>
 
         {error && (
@@ -81,7 +67,7 @@ export default function CategoryPage({ category, products, facets, error }: Page
               <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                 {/* Two quick choices for now; you can render dynamically later */}
                 {['Siemens', 'Bonton'].map((b) => {
-                  const selected = (query.brand || '') === b;
+                  const selected = String(query.brand ?? '') === b;
                   const href = {
                     pathname: router.pathname,
                     query: { ...query, brand: selected ? undefined : b },
@@ -114,7 +100,7 @@ export default function CategoryPage({ category, products, facets, error }: Page
                   <div style={{ fontWeight: 600, marginBottom: 8 }}>{code.toUpperCase()}</div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                     {values.map((fv) => {
-                      const selected = query[code] === fv.value;
+                      const selected = String(query[code] ?? '') === fv.value;
                       const href = {
                         pathname: router.pathname,
                         query: JSON.parse(
@@ -189,7 +175,7 @@ export default function CategoryPage({ category, products, facets, error }: Page
 
 function Pagination({ total, page, pageSize }: { total: number; page: number; pageSize: number }) {
   const router = useRouter();
-  const q = router.query as Record<string, any>;
+  const q = router.query as Query;
   const pages = Math.max(1, Math.ceil(total / pageSize));
   if (pages <= 1) return null;
 
@@ -224,10 +210,9 @@ function Pagination({ total, page, pageSize }: { total: number; page: number; pa
 
 export const getServerSideProps: GetServerSideProps<PageProps> = async (ctx) => {
   const category = String(ctx.params?.category || '').toUpperCase();
-  const { req } = ctx;
 
   // Build query — keep only string values
-  const queryEntries = Object.entries(ctx.query).filter(([k, v]) => typeof v === 'string') as Array<[string, string]>;
+  const queryEntries = Object.entries(ctx.query).filter(([, v]) => typeof v === 'string') as Array<[string, string]>;
   const q = new URLSearchParams(queryEntries);
   q.set('category', category);
 
@@ -253,7 +238,8 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async (ctx) => 
     const [products, facets] = (await Promise.all([prodRes.json(), facetRes.json()])) as [ProductsResponse, FacetsResponse];
 
     return { props: { category, products, facets, error: null } };
-  } catch (e: any) {
-    return { props: { category, products: null, facets: null, error: e?.message || 'Failed to load' } };
+  } catch (e: unknown) {
+    const message = e instanceof Error ? e.message : typeof e === 'string' ? e : 'Failed to load';
+    return { props: { category, products: null, facets: null, error: message } };
   }
 };

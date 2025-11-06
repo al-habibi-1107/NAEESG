@@ -20,7 +20,14 @@ export async function getFacets(params: Record<string, string>) {
   return res.json();
 }
 
-export async function checkout(payload: any) {
+interface CheckoutPayload {
+  items: Array<{ productId: string; quantity: number }>;
+  customer: { name: string; email: string; address: string };
+  paymentMethod?: string;
+  notes?: string;
+}
+
+export async function checkout(payload: CheckoutPayload) {
   const res = await fetch(`${API_BASE}/orders/checkout`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
