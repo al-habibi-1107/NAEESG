@@ -9,7 +9,8 @@ import {
   HStack,
   Stack,
   Badge,
-  Card
+  Card,
+  AspectRatio
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
@@ -22,30 +23,103 @@ import NoProductsMsg from "../../components/NoProductsMsg";
 
 // --- UI helpers for new layout ---
 const CircleCategory: React.FC<{ src: string; label: string; onClick?: () => void }> = ({ src, label, onClick }) => (
-  <Stack align="center" spacing={3} onClick={onClick} cursor={onClick ? 'pointer' : 'default'}>
+  <Stack
+    align="center"
+    spacing={3}
+    onClick={onClick}
+    cursor={onClick ? 'pointer' : 'default'}
+    w={{ base: 24, md: 28, lg: 32 }}
+    flexShrink={0}
+  >
     <Flex
       w={{ base: 20, md: 24, lg: 28, xl: 28, '2xl': 32 }}
       h={{ base: 20, md: 24, lg: 28, xl: 28, '2xl': 32 }}
       borderRadius="full"
       borderWidth="2px"
+      borderColor="black"
       align="center"
       justify="center"
       overflow="hidden"
       bg="white"
     >
-      <Image src={src} alt={label} objectFit="contain" w="80%" h="80%" />
+      <Image
+        src={src}
+        alt={label}
+        objectFit="contain"
+        w="100%"
+        h="100%"
+      />
     </Flex>
-    <Text fontWeight={600} fontSize={{ base: 'sm', md: 'md' }} textAlign="center">{label}</Text>
+    <Text
+      fontWeight={600}
+      fontSize={{ base: 'xs', md: 'sm' }}
+      textAlign="center"
+      noOfLines={2}
+    >
+      {label}
+    </Text>
   </Stack>
 );
 
-const PosterCard: React.FC<{ src: string; title?: string; discount?: string }> = ({ src, title, discount }) => (
-  <Box position="relative" borderRadius="md" overflow="hidden" boxShadow="md" bg="white">
-    {discount && (
-      <Badge position="absolute" top={2} colorScheme="purple" fontSize="0.8rem">{discount}</Badge>
+const PosterCard: React.FC<{ src: string; title?: string; discount?: string; brand?: string }> = ({
+  src,
+  title,
+  discount,
+  brand,
+}) => (
+  <Box textAlign="center">
+    {/* Image card */}
+    <Box
+      position="relative"
+      borderRadius="md"
+      overflow="hidden"
+      boxShadow="md"
+      bg="white"
+    >
+      {discount && (
+        <Badge
+          position="absolute"
+          top={2}
+          left={2}
+          colorScheme="purple"
+          fontSize="0.8rem"
+          zIndex={1}
+        >
+          {discount}
+        </Badge>
+      )}
+      <AspectRatio
+        ratio={{ base: 1, md: 4 / 3 }}
+        w="100%"
+      >
+        <Image
+          src={src}
+          alt={title || 'deal'}
+          objectFit="cover"
+        />
+      </AspectRatio>
+    </Box>
+
+    {/* Brand + Title below (outside card) */}
+    {(brand || title) && (
+      <Box mt={3}>
+        {brand && (
+          <Image
+            src={brand}
+            alt="Brand"
+            mx="auto"
+            mb={1}
+            h={{ base: 4, md: 6 }}
+            objectFit="contain"
+          />
+        )}
+        {title && (
+          <Text fontWeight={700} fontSize={{ base: 'sm', md: 'md' }}>
+            {title}
+          </Text>
+        )}
+      </Box>
     )}
-    <Image src={src} alt={title || 'deal'} w="100%" h={{ base: 36, md: 40 }} objectFit="cover" />
-    {title && <Box p={3}><Text fontWeight={700}>{title}</Text></Box>}
   </Box>
 );
 
@@ -76,7 +150,7 @@ const OfferSlider: React.FC<{ images: string[] }> = ({ images }) => {
 };
 
 // --- Reusable Section component ---
-type Poster = { src: string; title?: string; discount?: string };
+type Poster = { src: string; title?: string; discount?: string; brand?: string };
 type Group = { title: string; images: ReadonlyArray<string> };
 interface SectionProps {
   title: string;
@@ -91,7 +165,7 @@ const SectionBlock: React.FC<SectionProps> = ({ title, posters, groups, wrapInCa
       <Heading size="lg" mb={4}>{title}</Heading>
       {/* Posters row: scrollable on mobile, grid on md+ */}
       <SimpleGrid
-        columns={{ base: posters.length, md: Math.min(4, posters.length) }}
+        columns={{ base: posters.length, md: posters.length }}
         gap={4}
         mb={6}
         display={{ base: 'inline-flex', md: 'grid' }}
@@ -101,11 +175,15 @@ const SectionBlock: React.FC<SectionProps> = ({ title, posters, groups, wrapInCa
         {posters.map((p, i) => (
           <Box
             key={i}
-            flex={{ base: '0 0 100%', md: 'initial' }}
-            minW={{ base: '100%', sm: '100%' }}
-            maxW={{ base: '100%', sm: '100%' }}
+            flex={{ base: '0 0 80%', md: 'initial' }}
+            minW={{ base: '80%', sm: '70%', md: 'auto' }}
           >
-            <PosterCard src={p.src} title={p.title} discount={p.discount} />
+            <PosterCard
+              src={p.src}
+              title={p.title}
+              discount={p.discount}
+              brand={p.brand}
+            />
           </Box>
         ))}
       </SimpleGrid>
@@ -127,24 +205,26 @@ const SectionBlock: React.FC<SectionProps> = ({ title, posters, groups, wrapInCa
 
 // --- Demo data (replace image paths with real assets in /public) ---
 const roundCategories = [
-  { src: "/cat-switch.png", label: "Electric Switches" },
-  { src: "/cat-socket.png", label: "Electric Sockets" },
-  { src: "/cat-fan.png", label: "Ceiling Fans" },
-  { src: "/cat-led.png", label: "LED Lights" },
-  { src: "/cat-plate.png", label: "Cover Plates" },
-  { src: "/cat-regulator.png", label: "Fan Regulators" },
-  { src: "/cat-bell.png", label: "Doorbells" },
-  { src: "/cat-spike.png", label: "Spike Busters" },
-  { src: "/cat-wires.png", label: "House Wires" }
+  { src: "/CATEGORIES/MCB.png", label: "MCB - Miniature Circuit Breakers" },
+  { src: "/CATEGORIES/MCCB.png", label: "MCCB - Moulded Case Circuit Breakers" },
+  { src: "/CATEGORIES/RCCB.png", label: "RCCB - Residual Current Circuit Breakers" },
+  { src: "/CATEGORIES/ACCL.png", label: "ACCL\n" },
+  { src: "/CATEGORIES/CHANGEOVER-SWITCH.png", label: "Changeover Switches" },
+  { src: "/CATEGORIES/DB-BOX.png", label: "DB Boxes\n" },
+  { src: "/CATEGORIES/WIRES.png", label: "Wires & Cables\n" },
+  { src: "/CATEGORIES/SWITCH.png", label: "Electric Switches\n" },
 ];
 
 const panelBuilders = {
   title: "Panel Builder's - Exclusive Deals",
   posters: [
-    { src: "/posters/mccb-71.png", title: "3VJ MCCB", discount: "71% Off *" },
-    { src: "/posters/mccb-best.png", title: "3VT MCCB", discount: "Best Deal" },
-    { src: "/posters/mcb-66.png", title: "5SL MCB", discount: "66% Off *" },
-    { src: "/posters/acb-75.png", title: "3WJ ACB", discount: "75% Off *" },
+    { src: "/Panel_Section_1/5SJ-MCB.png", title: "5SJ MCB", discount: "71% Off *", brand: "/siemens_logo.png" },
+    { src: "/Panel_Section_1/5TJ-MCB.png", title: "5TJ MCB", discount: "Best Deal", brand: "/siemens_logo.png" },
+    { src: "/Panel_Section_1/ACCL.png", title: "ACCL", discount: "66% Off *", brand: "/siemens_logo.png" },
+    { src: "/Panel_Section_1/RCCB.png", title: "RCCB", discount: "75% Off *", brand: "/siemens_logo.png" },
+    { src: "/Panel_Section_1/MCCB.png", title: "MCCB", discount: "75% Off *", brand: "/siemens_logo.png" },
+    { src: "/Panel_Section_1/DB-BOXES.png", title: "DB Box", discount: "75% Off *", brand: "/siemens_logo.png" },
+    { src: "/Panel_Section_1/Changeover-Switch.png", title: "Changeover Switch", discount: "75% Off *", brand: "/siemens_logo.png" },
   ],
   groups: [
     { title: "MCB", images: ["/cat/mcb1.png", "/cat/mcb2.png", "/cat/mcb3.png", "/cat/mcb4.png"] },
@@ -156,9 +236,9 @@ const panelBuilders = {
 const oemDeals = {
   title: "OEM's - Best Deals",
   posters: [
-    { src: "/posters/wire-50.png", title: "Cables", discount: "Up to 50% Off *" },
-    { src: "/posters/switches-40.png", title: "Switches", discount: "Up to 40% Off *" },
-    { src: "/posters/others-35.png", title: "Accessories", discount: "Up to 35% Off *" },
+    { src: "/posters/wire-50.png", title: "Cables", discount: "Up to 50% Off *", brand: "/brands/bonton.png" },
+    { src: "/posters/switches-40.png", title: "Switches", discount: "Up to 40% Off *", brand: "/brands/bonton.png" },
+    { src: "/posters/others-35.png", title: "Accessories", discount: "Up to 35% Off *", brand: "/brands/siemens.png" },
   ],
   groups: [
     { title: "Electric Wires & Cables", images: ["/cat/w1.png", "/cat/w2.png", "/cat/w3.png", "/cat/w4.png"] },
@@ -170,9 +250,9 @@ const oemDeals = {
 const homeAppliances = {
   title: "Home electrical appliances - Trending Deals",
   posters: [
-    { src: "/posters/mpcb-62.png", title: "MPCB", discount: "Up to 62% Off *" },
-    { src: "/posters/push-62.png", title: "Push Buttons", discount: "Up to 62% Off *" },
-    { src: "/posters/ind-lamp-47.png", title: "Indicating Lamps", discount: "Up to 47% Off *" },
+    { src: "/posters/mpcb-62.png", title: "MPCB", discount: "Up to 62% Off *", brand: "/brands/siemens.png" },
+    { src: "/posters/push-62.png", title: "Push Buttons", discount: "Up to 62% Off *", brand: "/brands/bonton.png" },
+    { src: "/posters/ind-lamp-47.png", title: "Indicating Lamps", discount: "Up to 47% Off *", brand: "/brands/bonton.png" },
   ],
   groups: [
     { title: "MPCB", images: ["/cat/mp1.png", "/cat/mp2.png", "/cat/mp3.png", "/cat/mp4.png"] },
