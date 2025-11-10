@@ -250,9 +250,11 @@ const oemDeals = {
 const homeAppliances = {
   title: "Home electrical appliances - Trending Deals",
   posters: [
-    { src: "/posters/mpcb-62.png", title: "MPCB", discount: "Up to 62% Off *", brand: "/brands/siemens.png" },
-    { src: "/posters/push-62.png", title: "Push Buttons", discount: "Up to 62% Off *", brand: "/brands/bonton.png" },
-    { src: "/posters/ind-lamp-47.png", title: "Indicating Lamps", discount: "Up to 47% Off *", brand: "/brands/bonton.png" },
+    { src: "/Home_Section_2/WIRES.png", title: "Wires & Cables", discount: "Up to 47% Off *", brand: "/bonton_logo.png" },
+    { src: "/Home_Section_2/sockets.png", title: "Electric Sockets", discount: "Up to 62% Off *", brand: "/siemens_logo.png" },
+    { src: "/Home_Section_2/Switches.png", title: "Mark Switches", discount: "Up to 62% Off *", brand: "/siemens_logo.png" },
+    { src: "/Home_Section_2/Modular-Plate.png", title: "Modular Plate", discount: "Up to 62% Off *", brand: "/siemens_logo.png" },
+    
   ],
   groups: [
     { title: "MPCB", images: ["/cat/mp1.png", "/cat/mp2.png", "/cat/mp3.png", "/cat/mp4.png"] },
