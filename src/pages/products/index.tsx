@@ -123,17 +123,46 @@ const PosterCard: React.FC<{ src: string; title?: string; discount?: string; bra
   </Box>
 );
 
-const FourUpCategoryCard: React.FC<{ title: string; images: ReadonlyArray<string> }> = ({ title, images }) => (
-  <Box>
+type Poster = { src: string; title?: string; discount?: string; brand?: string };
+
+type GroupItem = {
+  src: string;
+  title: string;            // headline (e.g. offer or product name)
+  description?: string;     // small line under title (e.g. variant/feature)
+  brand?: string;           // brand name text
+};
+
+type Group = {
+  title: string;                    // section title e.g. "Miniature Circuit Breaker"
+  items: ReadonlyArray<GroupItem>;  // up to four tiles
+};
+
+const FourUpCategoryCard: React.FC<{ title: string; items: ReadonlyArray<GroupItem> }> = ({ title, items }) => (
+  <Card p={4} borderRadius="lg" boxShadow="md" h="100%">
     <Text fontWeight={700} mb={3} fontSize={{ base: 'md', md: 'lg' }}>{title}</Text>
-    <SimpleGrid columns={2} gap={3}>
-      {images.slice(0, 4).map((img, i) => (
+    <SimpleGrid columns={2} gap={4}>
+      {items.slice(0, 4).map((item, i) => (
         <Box key={i} borderRadius="md" overflow="hidden" bg="white" boxShadow="sm">
-          <Image src={img} alt={`${title}-${i + 1}`} w="100%" h={32} objectFit="cover" />
+          <Image src={item.src} alt={item.title} w="100%" h={32} objectFit="cover" />
+          <Box p={3} textAlign="left">
+            <Text fontSize="sm" fontWeight={700} mb={1} noOfLines={2}>
+              {item.title}
+            </Text>
+            {item.description && (
+              <Text fontSize="sm" color="gray.700" mb={1} noOfLines={1}>
+                {item.description}
+              </Text>
+            )}
+            {item.brand && (
+              <Text fontSize="sm" fontWeight={700} color="teal.700" noOfLines={1}>
+                {item.brand}
+              </Text>
+            )}
+          </Box>
         </Box>
       ))}
     </SimpleGrid>
-  </Box>
+  </Card>
 );
 
 const OfferSlider: React.FC<{ images: string[] }> = ({ images }) => {
@@ -150,8 +179,6 @@ const OfferSlider: React.FC<{ images: string[] }> = ({ images }) => {
 };
 
 // --- Reusable Section component ---
-type Poster = { src: string; title?: string; discount?: string; brand?: string };
-type Group = { title: string; images: ReadonlyArray<string> };
 interface SectionProps {
   title: string;
   posters: ReadonlyArray<Poster>;
@@ -190,7 +217,7 @@ const SectionBlock: React.FC<SectionProps> = ({ title, posters, groups, wrapInCa
       {/* Three category groups each with four images */}
       <SimpleGrid columns={{ base: 1, md: 3 }} gap={6}>
         {groups.map((g) => (
-          <FourUpCategoryCard key={g.title} title={g.title} images={g.images} />
+          <FourUpCategoryCard key={g.title} title={g.title} items={g.items} />
         ))}
       </SimpleGrid>
     </>
@@ -227,25 +254,73 @@ const panelBuilders = {
     { src: "/Panel_Section_1/Changeover-Switch.png", title: "Changeover Switch", discount: "75% Off *", brand: "/siemens_logo.png" },
   ],
   groups: [
-    { title: "MCB", images: ["/cat/mcb1.png", "/cat/mcb2.png", "/cat/mcb3.png", "/cat/mcb4.png"] },
-    { title: "MCCB", images: ["/cat/mccb1.png", "/cat/mccb2.png", "/cat/mccb3.png", "/cat/mccb4.png"] },
-    { title: "RCCB", images: ["/cat/rccb1.png", "/cat/rccb2.png", "/cat/rccb3.png", "/cat/rccb4.png"] },
+    {
+      title: "Miniature Circuit Breaker",
+      items: [
+        { src: "/Panel_Section_1/MCB/MCB_1P.png", title: "Up to 71% Off*", description: "1 Pole", brand: "SIEMENS" },
+        { src: "/Panel_Section_1/MCB/MCB_2P.png", title: "Up to 71% Off*", description: "2 Pole", brand: "SIEMENS" },
+        { src: "/Panel_Section_1/MCB/MCB_3P.png", title: "Up to 71% Off*", description: "3 Pole", brand: "SIEMENS" },
+        { src: "/Panel_Section_1/MCB/MCB_4P.png", title: "Up to 71% Off*", description: "4 Pole", brand: "SIEMENS" },
+      ],
+    },
+    {
+      title: "Moulded Case Circuit Breaker",
+      items: [
+        { src: "/Panel_Section_1/MCCB/MCCB_1P.png", title: "Up to 75% Off*", description: "MCCB Range", brand: "SIEMENS" },
+        { src: "/Panel_Section_1/MCCB/MCCB_2P.png", title: "Up to 75% Off*", description: "MCCB Range", brand: "SIEMENS" },
+        { src: "/Panel_Section_1/MCCB/MCCB_3P.png", title: "Up to 75% Off*", description: "MCCB Range", brand: "SIEMENS" },
+        { src: "/Panel_Section_1/MCCB/MCCB_4P.png", title: "Up to 75% Off*", description: "MCCB Range", brand: "SIEMENS" },
+      ],
+    },
+    {
+      title: "Residual Current Breaker",
+      items: [
+        { src: "/Panel_Section_1/RCCB/RCCB_1P.png", title: "Up to 75% Off*", description: "RCCB Range", brand: "SIEMENS" },
+        { src: "/Panel_Section_1/RCCB/RCCB_2P.png", title: "Up to 75% Off*", description: "RCCB Range", brand: "SIEMENS" },
+        { src: "/Panel_Section_1/RCCB/RCCB_2P.png", title: "Up to 75% Off*", description: "RCCB Range", brand: "SIEMENS" },
+        { src: "/Panel_Section_1/RCCB/RCCB_4P.png", title: "Up to 75% Off*", description: "RCCB Range", brand: "SIEMENS" },
+      ],
+    },
   ],
 } as const;
 
-const oemDeals = {
-  title: "OEM's - Best Deals",
-  posters: [
-    { src: "/posters/wire-50.png", title: "Cables", discount: "Up to 50% Off *", brand: "/brands/bonton.png" },
-    { src: "/posters/switches-40.png", title: "Switches", discount: "Up to 40% Off *", brand: "/brands/bonton.png" },
-    { src: "/posters/others-35.png", title: "Accessories", discount: "Up to 35% Off *", brand: "/brands/siemens.png" },
-  ],
-  groups: [
-    { title: "Electric Wires & Cables", images: ["/cat/w1.png", "/cat/w2.png", "/cat/w3.png", "/cat/w4.png"] },
-    { title: "Switches & Sockets", images: ["/cat/s1.png", "/cat/s2.png", "/cat/s3.png", "/cat/s4.png"] },
-    { title: "Other Accessories", images: ["/cat/o1.png", "/cat/o2.png", "/cat/o3.png", "/cat/o4.png"] },
-  ],
-} as const;
+// const oemDeals = {
+//   title: "OEM's - Best Deals",
+//   posters: [
+//     { src: "/posters/wire-50.png", title: "Cables", discount: "Up to 50% Off *", brand: "/brands/bonton.png" },
+//     { src: "/posters/switches-40.png", title: "Switches", discount: "Up to 40% Off *", brand: "/brands/bonton.png" },
+//     { src: "/posters/others-35.png", title: "Accessories", discount: "Up to 35% Off *", brand: "/brands/siemens.png" },
+//   ],
+//   groups: [
+//     {
+//       title: "Electric Wires & Cables",
+//       items: [
+//         { src: "/cat/w1.png", title: "Up to 50% Off*", description: "Black", brand: "Bonton" },
+//         { src: "/cat/w2.png", title: "Up to 50% Off*", description: "Blue", brand: "Bonton" },
+//         { src: "/cat/w3.png", title: "Up to 50% Off*", description: "Red", brand: "Bonton" },
+//         { src: "/cat/w4.png", title: "Up to 50% Off*", description: "Yellow", brand: "Bonton" },
+//       ],
+//     },
+//     {
+//       title: "Switches & Sockets",
+//       items: [
+//         { src: "/cat/s1.png", title: "Up to 62% Off*", description: "Switches", brand: "SIEMENS" },
+//         { src: "/cat/s2.png", title: "Up to 62% Off*", description: "Sockets", brand: "SIEMENS" },
+//         { src: "/cat/s3.png", title: "Up to 62% Off*", description: "Switches", brand: "SIEMENS" },
+//         { src: "/cat/s4.png", title: "Up to 62% Off*", description: "Sockets", brand: "SIEMENS" },
+//       ],
+//     },
+//     {
+//       title: "Other Accessories",
+//       items: [
+//         { src: "/cat/o1.png", title: "Up to 35% Off*", description: "Accessories", brand: "SIEMENS" },
+//         { src: "/cat/o2.png", title: "Up to 35% Off*", description: "Accessories", brand: "SIEMENS" },
+//         { src: "/cat/o3.png", title: "Up to 35% Off*", description: "Accessories", brand: "SIEMENS" },
+//         { src: "/cat/o4.png", title: "Up to 35% Off*", description: "Accessories", brand: "SIEMENS" },
+//       ],
+//     },
+//   ],
+// } as const;
 
 const homeAppliances = {
   title: "Home electrical appliances - Trending Deals",
@@ -257,9 +332,33 @@ const homeAppliances = {
     
   ],
   groups: [
-    { title: "MPCB", images: ["/cat/mp1.png", "/cat/mp2.png", "/cat/mp3.png", "/cat/mp4.png"] },
-    { title: "Push Buttons", images: ["/cat/pb1.png", "/cat/pb2.png", "/cat/pb3.png", "/cat/pb4.png"] },
-    { title: "Indicating Lamps", images: ["/cat/il1.png", "/cat/il2.png", "/cat/il3.png", "/cat/il4.png"] },
+    {
+      title: "WIRES & CABLES",
+      items: [
+        { src: "/Home_Section_2/WIRES/CABLE_RED.png", title: "Up to 62% Off*", description: "Red", brand: "BONTON" },
+        { src: "/Home_Section_2/WIRES/CABLE_YELLOW.png", title: "Up to 62% Off*", description: "Yellow", brand: "BONTON" },
+        { src: "/Home_Section_2/WIRES/CABLE_BLUE.png", title: "Up to 58% Off*", description: "Blue", brand: "BONTON" },
+        { src: "/Home_Section_2/WIRES/CABLE_BLACK.png", title: "Up to 62% Off*", description: "Black", brand: "BONTON" },
+      ],
+    },
+    {
+      title: "Switches & Sockets",
+      items: [
+        { src: "/Home_Section_2/Switch_Sockets/SOCKET.png", title: "Up to 62% Off*", description: "Electric Sockets", brand: "SIEMENS" },
+        { src: "/Home_Section_2/Switch_Sockets/SWITCH.png", title: "Up to 62% Off*", description: "Mark Switches", brand: "SIEMENS" },
+        { src: "/Home_Section_2/Switch_Sockets/MODULAR_PLATE.png", title: "Up to 47% Off*", description: "Modular Plate", brand: "SIEMENS" },
+        { src: "/Home_Section_2/Switch_Sockets/SOCKET_2.png", title: "Up to 47% Off*", description: "Electric Sockets", brand: "SIEMENS" },
+      ],
+    },
+    {
+      title: "Indicating Lamps",
+      items: [
+        { src: "/Home_Section_2/IL/IL_RED.png", title: "Indicating Lamps", description: "Red", brand: "SIEMENS" },
+        { src: "/Home_Section_2/IL/IL_GREEN.png", title: "Indicating Lamps", description: "Green", brand: "SIEMENS" },
+        { src: "/Home_Section_2/IL/IL_YELLOW.png", title: "Indicating Lamps", description: "Yellow", brand: "SIEMENS" },
+        { src: "/Home_Section_2/IL/IL_BLUE.png", title: "Indicating Lamps", description: "Blue", brand: "SIEMENS" },
+      ],
+    },
   ],
 } as const;
 
@@ -423,7 +522,7 @@ const ProductsPage: React.FC = ()=>{
 
       <SectionBlock wrapInCard title={panelBuilders.title} posters={panelBuilders.posters} groups={panelBuilders.groups} />
 
-      <SectionBlock wrapInCard title={oemDeals.title} posters={oemDeals.posters} groups={oemDeals.groups} />
+      {/* <SectionBlock wrapInCard title={oemDeals.title} posters={oemDeals.posters} groups={oemDeals.groups} /> */}
 
       <SectionBlock wrapInCard title={homeAppliances.title} posters={homeAppliances.posters} groups={homeAppliances.groups} />
 
